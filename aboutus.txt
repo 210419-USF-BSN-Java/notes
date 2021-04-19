@@ -1,6 +1,7 @@
-
 Hello I'm Kevin and I will be your trainer.
 My name is kevin and I like coffee.
+My name is Robbie and I like movies.
+My name is Kemo and I like JRPGs.
 My name is Jason Redmond and I have a love/hate relationship with git.
 My name is Devaraj and I like movies.
 Hey my name is Nolan and I prefer tea 
@@ -14,4 +15,6 @@ My name is Kevin Cho and I like League of Legends
 My name is Uri, and I like citrus fruits.
 My name is Andrew Davis and I love computer science!
 My name is Kevin Aarstad and I'm from South Dakota.
+Hello my name is raphael.I like white tigers.
+My name is Andrew Davis and I love computer science!
 My name is Ray and I like steak
