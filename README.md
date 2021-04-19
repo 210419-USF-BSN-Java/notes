@@ -1,4 +1,4 @@
-# ROC I/Java Environment Setup Guide
+# Java Environment Setup Guide
 ---
 
 ## Purpose
