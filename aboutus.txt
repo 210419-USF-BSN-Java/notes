@@ -1,16 +1,12 @@
 
 Hello I'm Kevin and I will be your trainer.
 My name is kevin and I like coffee.
+My name is Devaraj and I like movies.
 Hey my name is Nolan and I prefer tea 
 My name is ruben. I enjoy cold brew coffee. 
 My name is Tom and I like birds.
-<<<<<<< HEAD
 My name is Teresa and I love coffee.
-=======
 My name is Alexei and i like oranges
 My name is Kevin Cho and I like League of Legends
-<<<<<<< HEAD
->>>>>>> 5df1a1df869166d496df5e28afe5e353024c95f9
-=======
 My name is Andrew Davis and I love computer science!
->>>>>>> 76b284275e683e64109e6dbe4c42c36776ec72a3
+
