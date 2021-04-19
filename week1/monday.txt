@@ -1,0 +1,43 @@
+Git 
+	- Version Control tool used to manage source code, it can save snapshots of a project on one or more branching paths
+		- Repository: files, folders, objects and the branches that represent a project which is managed with a .git folder
+		- Working directory: currently active project files and folder 
+		- Staging Area: Area between working directory and repository where the changes that you make are added before the next commit
+		- Commit: Snapshot of the staged changes from a working directory
+	
+	- Git workflow
+		- git init - initializes a repository (creates a .git folder)
+		- git add - adds the changes made to the Staging area to be prepped
+			- git rm - removes file from being commited
+		- git commit - the changes are saved onto the local repository ( -m to add a message )
+		- git push - pushes the changes onto the remote repository
+		- git status - see which files are new and which files are staged to be commited
+		
+		- git branch - list available branches
+		- git checkout - navigate between branches ( -b to create a new branch )
+		- git pull - pulls anything that is new in the main branch
+
+cd: change directory (.., . , ~ , /)
+ls: list content of the directory ( -a, shows hidden files )
+mkdir: make directories
+touch: creates files
+cat: read files
+cp: copy files/directories
+mv: move files/ rename
+rm: remove files (-rf to remove directories)
+pwd: prints the current working directory
+man: manual to find more information about a command
+
+Text editors: vim/nano
+
+Absolute path: points to a location in the file system regardless if the current directory, from root directory (/)
+Relative path: points to a location in the file system based on the current directory
+
+http://cheat.sh/cd
+
+
+Exercise -
+	- clone notes repository
+	- create a branch firstname-lastname
+	- add a sentence about yourself
+	- create a pull request
