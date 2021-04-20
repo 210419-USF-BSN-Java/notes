@@ -52,7 +52,7 @@ Total Points: 25 Points
 
 * As a user, I can make a payment.
 * As a manager, I can make employee accounts.
-* As an employee, I can edit existing bicycles.
+* As an employee, I can edit existing items.
 * As a manager, I can fire employees.
 * As a manager, I can view sales history of all offers.
 
