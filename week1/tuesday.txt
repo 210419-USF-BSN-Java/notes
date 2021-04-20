@@ -92,3 +92,18 @@ Control flow statements
 	- while
 	- do/while
 	- switch
+
+Variable scopes
+	- to not be confused with access modifiers
+	- lifetime of a variable
+	- static/class
+		- variables live throughout the application's lifetime
+	- instance/object
+		- varibles live as long as the particular instance of a class exists (object)
+		- they begin once the object is instantiated and ends when the object is garbage collected
+	- method scope
+		- variables live as long as the method is executing
+		- parameters or variables declared within the method execution
+	- loop/block scope
+		- variables only exist during the execution of a block
+		- variables declared within a loop/conditional statement
