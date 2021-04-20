@@ -1,5 +1,6 @@
 Hello I'm Kevin and I will be your trainer.
 My name is kevin and I like coffee.
+My name is Andrew Davis and I love computer science!
 My name is Robbie and I like movies.
 My name is Kemo and I like JRPGs.
 My name is Jason Redmond and I have a love/hate relationship with git.
@@ -19,12 +20,10 @@ My name is Felix Nguyen and I like tea
 My name is Kevin Aarstad and I'm from South Dakota.
 My name is Ray and I like steak
 Hello my name is raphael.I like white tigers.
-My name is Andrew Davis and I love computer science!
 My name is Sean and I like chess.
 My name is Ray and I like steak
 My name is Wei and I am still learning
 My name is James and I like anime
-My name is Andrew Davis and I love computer science!
 My name is Rick able was I ere I saw elba
-
-
+My name is Christopher Espinal and I love corvids!
+My name is Vikram Malhotra and I like dogs.
