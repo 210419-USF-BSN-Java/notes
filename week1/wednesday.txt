@@ -1,0 +1,30 @@
+Java Memory management
+	- Stack/Heap
+	- Object obj = new Object(); // obj is a reference stored in the stack to the object created in the heap
+
+		- Stack
+			- Primitives and reference variables
+			- one stack per thread
+			- Variables "pop" off once the scope is over
+			- Naturally managed
+		- Heap 
+			- Objects
+			- String pool
+				- for String literals
+			- shared by all the threads
+			- Managed by GC
+	- Pass by Value
+		- Java is pass value language, which means that passing a variable into a method uses the value itself rather than the variable
+		- Passing a reference variable passes the reference value to the location in the heap, as such changes made to the object are persisted
+
+	- Automatic memory management
+	- Garbage collector frees up memory once it's no longer referenced
+		- Daemon thread - thread running in the background
+		- Removes objects without references in the heap
+			- finalize() - last method called upon an object before it is garbage collected
+				- usually used to close resources being used
+		- Garbage collection cannot be forced but can be suggested
+			- System.gc();
+
+
+		
