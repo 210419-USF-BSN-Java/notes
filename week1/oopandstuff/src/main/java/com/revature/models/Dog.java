@@ -4,6 +4,8 @@ public final class Dog extends Animal {
 	
 	String breed;
 
+	// private final Person owner = new Person();
+	
 	public String getBreed() {
 		return breed;
 	}
