@@ -1,0 +1,193 @@
+Java Memory management
+	- Stack/Heap
+	- Object obj = new Object(); // obj is a reference stored in the stack to the object created in the heap
+
+		- Stack
+			- Primitives and reference variables
+			- one stack per thread
+			- Variables "pop" off once the scope is over
+			- Naturally managed
+		- Heap 
+			- Objects
+			- String pool
+				- for String literals
+			- shared by all the threads
+			- Managed by GC
+	- Pass by Value
+		- Java is pass value language, which means that passing a variable into a method uses the value itself rather than the variable
+		- Passing a reference variable passes the reference value to the location in the heap, as such changes made to the object are persisted
+
+	- Automatic memory management
+	- Garbage collector frees up memory once it's no longer referenced
+		- Daemon thread - thread running in the background
+		- Removes objects without references in the heap
+			- finalize() - last method called upon an object before it is garbage collected
+				- usually used to close resources being used
+		- Garbage collection cannot be forced but can be suggested
+			- System.gc();
+
+Strings
+	- reference type, array of characters
+	- immutable - cannot be changed, value of a string cannot be changed.
+	- Strings are usually stored in the String pool (in the heap)
+		- Special place in the heap, where strings instantiated literally are stored
+		- This allows Java to reuse the same string for repeated strings
+	- String s = new String("a string"); - in the heap
+	- String s = "a string"; - in the string pool
+	- intern() - checks if string is already in string pool, if exists returns a reference to it, if not creates an instance and returns the reference to it.
+
+StringBuilder/StringBuffer:
+	- mutable alternatives to Strings with methods that allow for manipulation (append, replace...) 
+	- StringBuilder is not threadsafe - faster
+	- StringBuffer is threadsafe - slower
+
+Scanner
+	- Class in Java that can be used to scan through different things
+		- files, console, input streams
+	- can parse inputs for different types, read entire lines/partial lines... 
+	- Recommendation: use 1 scanner per input stream (System.in), can get wonky otherwise
+	- Good practice: close your scanner once done using it
+
+Package
+	- folder/structure/naming conflicts
+	- group on what they do/logical structure
+	- models/util/daos... access
+	- folders containing groups of related classes
+		- help resolve naming conflicts
+	- help organize your classes in your application and specify how they can access one another (access modifiers)
+	- package are usually declared at the top of your class 
+		- reverse URL format/reverse domain name as far as naming conventions is concerned, ie: com.revature
+	- packages can be organized based on what "problem" they solve
+		- separation of concerns, ie:
+			- a package to hold all of our models
+			- a package to hold all the classes related to data access/storage/interacting with the database
+			- a package to hold all classes related to handling business logic (services)
+			- a package to hold all classes related to interacting with web
+
+OOP
+	- Programming paradigm which relies on classes and objects to model real world objects
+	- 4 pillars of OOP
+		- Encapsulation
+		- Inheritance
+		- Polymorphism
+		- Abstraction
+
+Class
+	- Blueprint for objects, define their states and behaviors
+	- Members of a class
+		- Variables and methods of that class
+			- Object/Instance specific
+				- Instance variables
+				- Instance methods
+			- Class/ don't belong to a specific object
+				- Static variables
+				- Static methods
+
+Object
+	- Instance of a class
+		- can be created using the "new" keyword
+			- ClassName varName = new ClassName(); 
+	- Beware of the Object class
+		- Parent of all classes
+
+Encapsulation
+	- refers to the ability for an object to protect its states and its behaviors
+	- can be achieved by defining the accessibility of class members using access modifiers
+		- set variables to private
+	- using getter and setter methods to retrieve/change states of an object
+		- we can add logic to setters in order to ensure valid values
+
+Access modifers
+	- specifies which classes have access to an entity (class, method, field...) 
+	- public - least restrictive, all of the classes within the application have access
+	- protected - all of the classes within the same package and sub-classes/children have access
+	- "default" - the 'default' keyword is used for a different purpose, default access modifier is illustrated by not having one, all of the classes within the same package
+	- private - the most restrictive, only the class itself has access
+
+Inheritance
+	- when subclasses adopt states and behaviors from a super/parent class
+	- Deriving subclasses allows for code reusability and more efficient development
+		- DRY - Do not repeat yourself principle
+	- keyword "extends"
+	- By default/implicitely every class extends the Object class
+		- As a result every class inherits methods from the Object class(toString(), equals(), hashcode()...)
+	- By default, the first line of every constructor is a call to the parent's constructor: super();
+	- Java does not support multiple inheritance (for classes)
+
+
+Polymorphism
+	- Ability for objects and methods to adapt their behaviors in different contexts
+	- Can occur at compile time or at run time
+	- Method Overloading
+		- creating multiple methods in the same class with the same method name by with a different number and/or type of parameters
+		- compile time / static
+	- Method Overriding
+		- write a method in a subclass with the same method signature as the parent class but with a different implementation
+		- ie: overriding the toString() method
+		- runtime polymorphism
+	- Upcasting/Downcasting
+		- Upcasting refers to instantiating/assigning an by declaring its parent's reference type
+			- ie: Animal a = new Dog();
+			- This restricts the methods available to the methods declared in the parent class, however when a method is called in the implementation of the child class is invoked
+		- Downcasting refers to instantiating/assigning an object by declaring its child class reference type
+			- ie: Dog d = (Dog) (new Animal()); - Explicitly cast
+			- This can lead to issues during run time 
+
+Abstraction
+	- a way of hiding complex implementation behind a simple interface
+		- using methods without actually knowing how it's implemented
+	- Java incorporates Abstraction via abstract keyword and interfaces
+	- "abstract" keyword
+		- can be found in front of class to declare a class as abstract
+			- abstract class myClassName{}
+			- is like a template that can have parts left to be implemented
+				- usually to push user to use more specific classes
+			- can't be instantiated
+			- can be inherited
+			- can have abstract methods
+			- can only extend one class
+		- can be found in front of a method to declare a method as abstract
+			- method without a body, to be implemented later on
+			- accessMod abstract returnType name();
+				- cannot be private
+		- cannot be found in front of a variable
+	- interface
+		- declare behavior(s) for classes to implement
+		- contract like
+		- convention is to end the name of your interface with -able
+		- methods are by default implicitely abstract
+		- all variables in interfaces are public static final - implicitely if not typed
+		- implement as many interfaces as we want
+		- As of Java 8, interfaces can now provide a default implementation of a method using the "default" keyword
+		- interfaces can inherit as many other interfaces as we want
+		- Marker interfaces
+			- an interface with no declared methods in it
+			- mainly used to provide information to the compiler and the JVM about the object
+		- Functional interfaces
+			- an interface with only one abstract method declared
+			- use Lambda expressions with it
+
+static/instance block
+	- static block runs when the class is loaded (before the main method)
+	- instance block that runs when an object is instantiated/ before the constructor
+
+
+non-access modifiers
+	- static
+		- in front of method
+			- associated with the class rather than instance
+			- can be called using the classname
+		- in front of a field
+			- associated with the class rather than instance
+			- can be called using the classname
+			- shared by all instances
+	- abstract
+	- final
+		- in front of a class
+			- indicates that the class cannot be extended
+		- in front of a method
+			- indicates that a method cannot be overriden
+		- in front of a variable/field
+			- indicates that once initialized the variable cannot be reassigned
+	- default
+	- synchronized
