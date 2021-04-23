@@ -1,0 +1,49 @@
+Serialization
+	- means for persistence, for java objects to persist past the life cycle of the application
+	- allows for objects to be written directly to streams 
+		- java objects are converted to a bytestream - from here it can be written to a file
+		- stream can be wrapped in an ObjectInputStream/ObjectOutputStream to do this conversion
+	- Serializable is a marker interface (no methods) which indicates that an object is meant to be serialized 
+	- SerialVersionUID is used to define the version of a java object
+		- it's used at runtime to assure that the serializer and the deserializer have compatible objects  
+	- transient keyword indicates that a particular instance variable is not to be serialized
+
+
+File IO
+	- java.io package provides classes to perform input and output (I/O)
+	- InputStream is used to read data from a source
+	- OutputStream is used to write data to a destination
+
+ByteStream
+	- used to read/write to a file transfered 1 byte by 1 byte of data
+		- FileInputStream
+		- FileOutputStream
+
+CharacterStream
+	- character streams are used to perform input/output for 16-bit characters
+		- bytestream represents a stream of data in the form of 8-bit bytes
+	- built on a bytestream, but handles the encoding of the characters for you 
+		- FileReader
+		- FileWriter
+
+Buffering ByteStreams and CharacterStreams
+	- going one byte or character at a time can be pretty slow, so buffered streams can be used to read/write in larger chunks
+		- BufferedInputStream/ BufferedOutputStream -> buffered byte streams
+		- BufferedReader/ Buffered Writer -> buffered character streams
+			- when used, stream objects are passed in as a parameter
+
+BufferedReader:
+
+	FileReader fr = new FileReader("input.txt");
+	BufferedReader br = new BufferedReader(fr);
+	// read a single character, read a line
+
+BufferedWriter
+
+	FileWriter fw = new FileWriter("output.txt");
+	BufferedWriter bw = new BufferedWriter(fw);
+	// write or append 
+	// write only takes a String which must not be null and returns void
+	// append takes any CharSequence which can be null and return the Writer so it can be chained.
+	// FileWriter constructor is overloaded with a second parameter allow us to designate whether we want to rewrite the whole file or just append to the existing contents
+
