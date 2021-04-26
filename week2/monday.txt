@@ -1,0 +1,48 @@
+Plan for Monday:
+	- Quiz on RevPro (50mins)
+	- QC (10:30AM Central)
+		- Webcam on, Business Professional attire
+		- Fill out surveys before Jonathan comes in
+			- https://docs.google.com/forms/d/e/1FAIpQLSctgsH-__acrraIWMPDsV3XSFmTAujJNIxK9zKEhATsYsKHSw/viewform?embedded=true
+				- Select the USF location
+				- Select our batch
+				- Select WEEK 1
+	- Hackerrank Challenge
+		- www.hackerrank.com/2104javakevinweek2
+		- 2 problems
+			- Work on them as a group, feel free to share ideas whether right or wrong and provide insights and opinions. 
+			If you were able to complete the problems on your own, please take a more active role in guiding the discussion.
+	- Environment setup for week 2, please make sure that everyone have these installed by tomorrow:
+		- PostgreSQL
+		- DBeaver
+	- Project Work
+		- Use the rest of the day to work on p0/review material
+	
+	- 1-o-1s with Kevin
+		- Will be conducted in a breakout room throughout the day
+		- ~ 10 minutes each
+		- Order for 1-o-1s:
+			- Wright	Sean  
+			- Choy  	Ryan  
+			- Shackleford  	Raphael  
+			- Hidalgo Fitzgerald  	Teresa  
+			- Dixon  	Thomas  
+			- Redmond  	Jason  
+			- Ivanchyk  	Aliaksei  
+			- Espinal  	Christopher  
+			- Nguyen  	Felix  
+			- Garcia  	Ruben  
+			- Acharya	Devaraj
+			- Campbell  	Raymond  
+			- Wei  		Guojun  
+			- Weeks  	Robbie  
+			- Ricci  	Rick  
+			- Martinez  	James  
+			- Omamalin  	Uriah  
+			- Allen  	Kemo  
+			- Nguyen 	Steven
+			- Clayton  	Nolan  
+			- Davis  	Andrew  
+			- Aarstad  	Kevin  
+			- Cho  		Kevin  
+			- Malhotra  	Vikram  
