@@ -14,7 +14,8 @@ public class Animal {
 		this.age = age;
 	}
 	
-	// Methods: [access modifier] [non-access modifiers] [return type] [method name]([parameter list (if any)])
+	// Methods: [access modifier] [non-access modifiers] [return type]
+	//[method name]([parameter list (if any)])
 	public void makeNoise() {
 		System.out.println("General animal noise");
 	}
