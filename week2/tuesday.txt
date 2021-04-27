@@ -1,0 +1,23 @@
+Basic application setup
+	- Separation of concerns: grouping classes/interfaces handling a similar issue/concern together.
+		- different layers of application
+	- models/ beans/ entities
+		- classes define types of objects used in the application
+		- ie: Person, Employee, Product
+	- data access object(DAOs)
+		- design pattern
+		- one layer in the application to handle data persistence (database, file...)
+			- We are using JDBC to interact with the data
+		- Leveraging Interfaces to declare desire behaviors to be easily able to change the implementation of the methods as needed
+			- Example: changing database vendors like oracle to postgressql
+			- CRUD
+				-Create , read, update, delete
+	- services
+		- where business logic is defined
+			- deals with combining data from daos to accomplish desired fun ctionality
+		- nested between dao layer and controller layer
+		- might combine methods/behaviors from different daos
+	- controllers / presentation layer
+		- Interacts with the user / front end
+
+
