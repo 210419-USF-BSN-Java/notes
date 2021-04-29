@@ -77,3 +77,52 @@ Normalization
 
 						SalesStaff
 EmployeeID | SalesPerson | SalesOffice(street, city, state, zip)| Age | DOB | Customer1 | Customer2 | Customer3
+
+
+TCL: Transaction Control Language
+	- Transaction
+		- consists in combining multiple database operations into one unit of work
+		- PostgreSQL treats every SQL statement as being executed within a transaction if not specified otherwise
+			- If a BEGIN command is not used, a BEGIN statement is implicitely provided, if successful a COMMIT statement is wrapped around it
+			- Transaction block: statement(s) surrounded by BEGIN and COMMIT
+	- Relevant statements:
+		- BEGIN
+			- indicates the start of a transaction
+		- SAVEPOINT
+			- saves the current state of the database within that transaction
+		- ROLLBACK [savepoint]
+			- reverts the state of a database to a previous commit or savepoint
+		- COMMIT
+			- save/persist the changes to the database
+	- Properties of a transaction: ACID
+		- Atomicity
+			- One unit, transaction is completed as a whole or not at all
+		- Consistency
+			- database should be in a valid state before and after the transaction
+				- valid in regards to db constraints
+				- valid in regards to business logic of the application
+		- Isolation
+			- One transaction shouldn't be able to interfere with another
+			- Result of transactions executing concurently should be the same as if they occured subsequently
+		- Durability
+			- Commits are final and the changes made are persisted
+	- Transaction Isolation Levels
+		- Read uncommitted
+			- able to read/interact with uncommited data
+		- Read committed
+			- only able to interact with data committed BEFORE the query began
+			- PostgreSQL default setting 
+		- Repeatable read
+			- only see data committed before the transaction began
+			- allows for phantom read
+		- Serializable
+			- Strictest isolation level
+			- As if transactions occur one after the other
+		- Stricter level result in slower transaction execution
+	- Read phenomena
+		- Dirty read
+			- transaction reads data written by a concurrent uncommited transaction
+		- Nonrepeatable read
+			- a transaction re-reads data it has previously read and finds that the date has been modified by another transaction
+		- Phantom read
+			- transaction re-executes a query that returns a set of rows and finds out that the set of row has been modified by another transaction

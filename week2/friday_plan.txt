@@ -1,0 +1,19 @@
+List of voluntolds: - timesheets
+	- Raymond
+	- Uriah
+	- Kemo
+	- Andrew
+	- Robbie
+	- Tom
+	- Nolan
+
+9am - Small group sit down/check-in
+	- project status
+	- feel for course
+	- focus/goals
+	- blockers
+		- questions/clarification
+	
+	- Note taker jots down notes for everyone
+
+9:30 ~ - Team leaders bring up overall status to main group

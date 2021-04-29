@@ -12,7 +12,9 @@ insert into users (first_name, last_name) values ('Dacie', 'Darkins');
 insert into users (first_name, last_name) values ('Thibaud', 'Kenney');
 insert into users (first_name, last_name) values ('Lorrayne', 'Carrigan');
 insert into users (first_name, last_name) values ('Nettie', 'Pratten');
+
 insert into users (first_name, last_name) values ('Vinny', 'Heminsley');
+
 insert into users (first_name, last_name) values ('Cheston', 'Lynam');
 
 select upper(first_name) from users;
