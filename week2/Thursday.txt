@@ -53,4 +53,27 @@ Scalar and Aggregate functions
 			- SELECT col1, aggregateFunction(col2) FROM table GROUP BY col1 
 				HAVING col2 = value;
 
-	
+Normalization
+	- refers to a database design technique which reduces redundancy and ensures that data is stored logically
+	- consists in dividing larger tables into smaller tables and linking them using relationships
+		- focus on the first 3 NFs (Normal Forms)
+			- Usually a database is considered sufficiently normalized after 3NF
+		- 1NF
+			- each table needs a primary key
+			- tables should be comprised of atomic values
+				- values that cannot be broken down into smaller pieces
+			- no repeated columns (columns for the same purpose)
+				- ie: color1, color2, color 3
+		- 2NF
+			- must be 1NF
+			- no partial dependencies
+				- removing values that only depend on one part of a composite key 
+		- 3NF
+			- must be 2NF
+			- no transitive dependencies
+				- ie: fields that can be determined based on other fields
+
+
+
+						SalesStaff
+EmployeeID | SalesPerson | SalesOffice(street, city, state, zip)| Age | DOB | Customer1 | Customer2 | Customer3
