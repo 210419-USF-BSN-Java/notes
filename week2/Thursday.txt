@@ -1,0 +1,56 @@
+Factory Design Pattern
+	- used to return/create an implementation of a specified interface
+	- used when the implementation does not matter/depends on different conditions that the calling class is not aware of
+	- enforces abstraction/code to the interface
+
+Singleton Design Pattern
+	- used to ensure that there is only one instantiation of a class
+	- enforced with the following conditions
+		- private constructor: Can't create an instance outside of the class
+		- private static instance of the singleton class: static enforces that there is only one because it is associated twith the class
+		- public static synchronized accessor method: this is what allows us to retrieve our private static instance method, can be synchronized to prevent threads from accessing it
+
+
+Domain integrity
+	- values fall within the constrants placed on the columns
+	- make sure that the values have the correct type
+
+Referential integrity
+	- Want db to be working properly within the constraints of the foreign key relationships
+	- do not want a record to reference another that no longer exists
+		- orphananed record
+	- we can delete on cascade to remove references
+
+Multiplicity
+	- refers to relationships between tables
+	- one-to-one
+		- exactly one row references another row in a different table
+		- ie: one SN is assigned to one person
+	- one-to-many/many-to-one
+		- exactly one row in a table is referenced by potentially many rows in another table
+		- ie: one employee has one department but one department may have many employees
+	- many-to-many
+		- several rows in one table can reference several rows in another table
+		- ie: friends can have many friends
+		- a junction table can be created in order to work with those
+
+Aliases
+	- used to give a temporary name of the purpose of querying or result sets
+	- allow more complicated queries to be easier to read
+		- SELECT A.ID, A.NAME, B.NAME FROM TABLE_A AS A 
+			JOIN TABLE_B AS B ON A.ID = B.ID;
+	- column aliases allow results set to be more readable, and also allow nested queries to be more readable as well
+		- SELECT avg(salary) as "Average Salary" from employees;
+
+Scalar and Aggregate functions
+	- scalar functions - used on a single input to retrieve a single output
+		- length, lower, upper, round, substr
+	- aggregate functions - used on a group of inputs to retrieve a single output
+		- count, avg, sum, max, min
+		- GROUP BY clause: used with aggregate function for better data analysis
+			- SELECT col1, aggregateFunction(col2) FROM table GROUP BY col1;
+		- HAVING: used with aggregate function for more specificity
+			- SELECT col1, aggregateFunction(col2) FROM table GROUP BY col1 
+				HAVING col2 = value;
+
+	
