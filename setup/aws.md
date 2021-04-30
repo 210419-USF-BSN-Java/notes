@@ -46,7 +46,7 @@ Login to your [AWS account](https://aws.amazon.com/) first. If you haven't creat
 
 <img src="./images/rds-2.png" width="900"/>
 
-5. Before we're able to connect to the RDS,  we must make sure that our security group allows us to connect.  When you're finished creating the DB, and click your VPC security group under the security section.
+5. Before we're able to connect to the RDS,  we must make sure that our security group allows us to connect. When you're finished creating the DB, and click your VPC security group under the security section.
 
 6. Navigate to the **Inbound rules** and edit your inbound rules to allow traffic from PostgreSQL as such:
 
