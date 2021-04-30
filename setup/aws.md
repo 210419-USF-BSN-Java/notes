@@ -29,12 +29,14 @@ Login to your [AWS account](https://aws.amazon.com/) first. If you haven't creat
 1. Upon logging in, navigate to the *RDS Dashboard* by searching `RDS` and clicking the first result.
 
 2. Select the following configurations:
-    * `Easy Create`
+    * `Standard Create`
     * Engine Type: `PostgreSQL`
-    * DB Instance size: `Free tier`
+    * Engine Version: `PostgreSQL 10.XX-R1` (the latest 10 version)
+    * Templates: `Free tier`
     * DB Instance identifier: You can keep this as default `database-1` or name it whatever you'd like.
     * Master username: `postgres`
     * Master password: `elephant` (or something easy to remember).
+    * Public access: `Yes` (Under the Connectivity section)
 
 3. Click `Create database`.  If the creation is successful, you should see the following screen:
 
@@ -44,11 +46,11 @@ Login to your [AWS account](https://aws.amazon.com/) first. If you haven't creat
 
 <img src="./images/rds-2.png" width="900"/>
 
-5. Before we're able to connect to the RDS,  we must modify the accesibilty to so by creating a new Security group.  When you're finished creating the DB, navigate to the upper right hand corner and click `Modify`.
+5. Before we're able to connect to the RDS,  we must make sure that our security group allows us to connect.  When you're finished creating the DB, and click your VPC security group under the security section.
 
-6. Scroll down to **Network & Security** and change `Public accessibility` to **Yes**. Submit your changes, **making sure that they are applied *immediately***.
+6. Navigate to the **Inbound rules** and edit your inbound rules to allow traffic from PostgreSQL as such:
 
-<img src="./images/public.png" width="900"/>
+<img src="./images/inbound-rules-db1.png" width="900"/>
 
 5. Open DBeaver.  Create a new connection to PostgreSQL and click `Next`.
 
