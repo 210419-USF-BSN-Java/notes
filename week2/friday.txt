@@ -1,0 +1,18 @@
+User defined functions
+	- can be used to define more specific operations to be performed on a database
+	- PL/pgSQL
+		- Procedural programming language
+		- able to add control flow to statements
+	
+	- syntax
+		create (or replace) function [function name] ([params])
+		returns [type] (void)
+		language [lang]
+		as $$
+		declare
+			- any variable to be used
+			- optional		
+		begin
+			- code for your function
+		end
+		$$
