@@ -50,7 +50,7 @@ Login to your [AWS account](https://aws.amazon.com/) first. If you haven't creat
 
 6. Navigate to the **Inbound rules** and edit your inbound rules to allow traffic from PostgreSQL as such:
 
-<img src="./images/inbound-rules-db1.png" width="900"/>
+<img src="./images/inbound-rules-db1.PNG" width="900"/>
 
 5. Open DBeaver.  Create a new connection to PostgreSQL and click `Next`.
 
