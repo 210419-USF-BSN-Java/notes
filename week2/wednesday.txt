@@ -1,0 +1,73 @@
+Multiplicity and Normalization 
+
+DML
+	- Data manipulation language
+	- Statements to perform record level operations
+		- to interact with our records stored in tables
+	- CRUD - Create/Read/Update/Delete
+	- INSERT
+		- INSERT INTO table_name(col1_name, col2_name) VALUES (col1_value, col2_value);
+			- https://www.mockaroo.com/
+				- Can be used to generate data
+	- UPDATE
+		- UPDATE table_name SET col_name = col_value WHERE condition; 
+			- if no where clause is specified, it will delete every record in that table.
+	- DELETE
+		- DELETE FROM table_name WHERE condition;
+			- if no where clause is specified, it will delete every record in that table.
+
+DQL
+	- Data Query Language
+		- "sub-sub" language/ part of DML
+	- Statements to retrieve information from tables
+	- SELECT
+		- https://www.postgresql.org/docs/10/sql-select.html
+		- main operation used when querying data, can be filtered using the WHERE clause
+		- * -> Select all
+		- Result set can be further filtered/arranged using addition clauses
+			- GROUP BY
+			- HAVING
+			- ORDER BY
+			- LIMIT
+			- OFFSET
+
+JDBC
+	- Java Database Connectivity
+		- establishes a connection between a Java Application and a database
+			- dependency is database specific
+	- Important JDBC classes/interfaces:
+		- DriverManager: manages the JDBC drivers
+			- .getConnection()
+				- provide credentials to your database
+					- hardcoded, file, environment variables
+		- Connection: represents the connection to the database
+			- .setAutoCommit(boolean)
+			- createStatement()
+			- commit()
+			- rollback()
+			- close()
+		- Statement: represents a SQL statement
+			- executeQuery(sql)
+			- best used when no user input is required due to vulnerability to SQL injection otherwise
+		- PreparedStatement: represents a SQL statement that have been pre-processed before their execution and therefore prevent SQL injection
+			- setInt()
+			- setString
+			- executeUpdate
+		- CallableStatement: calls a function defined in the database
+		- ResultSet: result of a query 
+			- next()
+			- getInt(colName)
+	- SQL Injection:
+		- code injection that is aimed at the database
+		- placing malicious code into a sql statement
+			- SELECT * FROM DEPARTMENTS WHERE = [userinput];
+				- "1; DROP TABLE DEPARTMENTS;"
+
+Joins
+	- way to combine rows from different tables based on some logical relationships (columns)
+	- Types of joins:
+		- Inner join/ Join: returns records that have matching values in both tables
+		- Left (outer) join: returns all records from the left table and the matched records from the right table
+		- Right (outer) join: returns all records from the right table and the matched records from the left table
+		- Full (outer) join: returns all the records when there is a match in either the left or right table
+		- Self join: join a table with itself to combine related data from the same table

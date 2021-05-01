@@ -1,0 +1,7 @@
+Wednesday exercise
+	- clone https://github.com/210419-USF-BSN-Java/RevaCompany.git
+	- create a branch firstname-lastname
+	- implement the remaining methods of DepartmentPostgres Class
+	- Create a EmployeePostgres class that implements EmployeeDao and implement those methods
+
+Notes: Push often, sql script to set up the Company app can be found in week2 notes.

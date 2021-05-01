@@ -1,0 +1,109 @@
+Why Java? 
+	- OOP Programming language
+		- Multi paradigm language (functional programming) 
+	- mature language/supported by Oracle so has a lot of documentation
+	- Platform indepent 
+		- WORA, write once run anywhere
+			- due to the JVM
+	- Compiled language
+		- Optimization
+			- Highlevel language to bytecode to be executed
+		- Compile time error checking
+	- Supports multithreading
+		- run processes concurrently
+	- Automatic memory management
+		- no need to manually allocate and allocate
+			- garbage collector does automatically 
+
+
+JDK/JRE/JVM
+	- JDK: Java Development Kit
+		- Provides an environment to develop and execute a Java Program
+		- Contains the JRE
+		- Contains compiler, tools for development
+	- JRE: Java Runtime Environment
+		- Contains JVM
+		- Includes core libraries
+		- All that's needed to RUN an application
+	- JVM: Java Virtual Machine
+		- Takes compiled code and executes it from the main method
+		- Different OS have different implmentations
+	- Compilation process
+		- Highlevel Java code (.java) => Compilation step (javac) => Bytecode (intermediary language) (.class)
+	- Running
+		- java .classFileName
+		- java -jar jarFileName.jar
+			- jar: Java Archive, packaging format to assemble all of the .class files for distribution
+			- https://docs.oracle.com/javase/tutorial/deployment/jar/basicsindex.html
+
+Variable
+	- used to store data
+	- have primitive and reference types
+		- primitive datatypes - stored on the Stack
+			- Whole numbers: byte short int long
+			- Floating points: float double
+			- character: char
+			- boolean
+		- reference types - stored on the Heap
+			- Objects
+			- Wrapper classes
+				- a way to treat pritives like objects
+					- Autoboxing: Automatic conversion of a primitive variable into its wrapper class
+					- Autounboxing: Automatic conversion of a wrapper class into a primitive
+			- Strings
+				- objects which represent an array of characters
+				- can be creating via String literals and via using the new keyword
+			- Arrays
+
+Class
+	- Blueprints for objects, they define their states and behaviors
+		- states refer to the fields
+		- behaviors refer to the methods
+		- instantiate an object using the new keyword which calls the constructor
+	- Constructors
+		- type of method that has no return type used to create an instance of a class
+		- called used the "new" keyword
+		- default: a constructor is created automatically in no constructors are defined
+		- no-args: constructor with no parameters
+		- parameterized/overloaded: constructor with parameters
+
+Method
+	- reusable block of code that can take in arguments and can return something
+		- void: no return type
+		- return dataType;
+	- main method
+		- public static void main(String[] args)
+		- where the application starts running from
+	- call a method
+		- static method call: ClassName.methodName();
+		- non-static method call: object.methodName();
+Arrays
+	- linear contiguous containers of same datatype
+		- can be either primitives or reference types
+		- contiguous blocks in memory
+			- fixed sized
+		- Elements in an array can be accessed via their index
+			- starts at 0
+
+Control flow statements
+	- ways to break the traditional execution of an application (ie: top to bottom)
+	- if/else, if
+	- for
+	- while
+	- do/while
+	- switch
+
+Variable scopes
+	- to not be confused with access modifiers
+	- lifetime of a variable
+	- static/class
+		- variables live throughout the application's lifetime
+	- instance/object
+		- varibles live as long as the particular instance of a class exists (object)
+		- they begin once the object is instantiated and ends when the object is garbage collected
+	- method scope
+		- variables live as long as the method is executing
+		- parameters or variables declared within the method execution
+	- loop/block scope
+		- variables only exist during the execution of a block
+		- variables declared within a loop/conditional statement

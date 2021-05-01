@@ -1,0 +1,112 @@
+Maven
+	- Project management tool, Build automation tool
+	- Build automation tool
+		- manages the lifecycle of your application
+		- goal is to create an artifact to be deployed
+			- 3 build lifecycles
+				- Clean - removing/cleaning previous artifacts(packaged application: .jar/.war...)
+				- Default - tests/packages your application
+					- Validate => project is correct and all necessary information is available
+					- Compile => compiles project source code
+					- Test => tests all compiled code
+					- Package => packages all compiled code to WAR/JAR file
+					- Integration => performs all integration tests on WAR/JAR
+					- Verify => runs checks on the results of integration tests
+					- Install => installs WAR/JAR to local repository
+					- Deploy => copies final WAR/JAR to the remote repository
+				- Site - generate documentation
+		- project structure
+			- src/main/java: where your packages/classes go
+			- src/test/java: where your test classes go
+			- pom.xml: project object model (metadata about your project, properties, dependencies, build details)
+				- Allows for project configuration to be shared(ie: in team environment/using git)
+			- src/main/resources: where resources like properties for frameworks go
+			- src/test/resources: where resources for testing go
+	- Project management/Dependency manager
+		- manages dependencies by leveraging the maven repository
+			- https://mvnrepository.com/
+			- dependency
+				- frameworks/libraries written by other developers to be used in your project
+			- stored locally in the ~/.m2 folder
+			- ie:
+			<dependencies>
+				<dependency>
+      					<groupId>junit</groupId>
+     					<artifactId>junit</artifactId>
+      					<version>4.11</version>
+    				</dependency>
+			</dependencies>
+
+Testing
+	- is the process of checking whether your application is behaving as expected/required
+	- positive testing - making sure application handles correct inputs
+	- negative testing - making sure application handles incorrect inputs
+	- regression testing - making sure that new features added do not break previously written code
+					- making sure that tests still pass
+
+Unit testing
+	- refers to testing individual unit of functionality, in this case methods
+	- at the bottom of the testing pyramids, as such the most abundant kind of testing
+	- JUnit framework in Java
+
+Test Driven Development
+	- the process of writing your tests to fail first to establish the functionality of your application, then writing code to pass those tests
+		- a way to approach this:
+			- write interfaces/empty methods to establish the functionality desired
+			- write your tests
+			- write code/implement methods to pass to pass those tests
+		- benefits
+			- planning/establishing desired behavior earlier on
+			- easily find where the issue arises from since the tests have been already written
+
+JUnit
+	- Java Unit Testing framework - I will be using JUnit 4
+	- it includes a lot of annotations and classes in order to write automated unit tests
+	- leverage "assert" methods to check for a particular condition to determine if a test passes
+		- a test passes if the result obtained is the result expected
+			- ie: an exception thrown might be the desired behavior
+		- assert methods: https://junit.org/junit4/javadoc/4.8/org/junit/package-summary.html
+			- assertEquals
+			- assertArrayEquals
+			- assertNotNull
+			- assertTrue/False
+	- JUnit Annotation
+		- @Test
+		- @BeforeClass
+		- @Before
+		- @After
+		- @AfterClass
+		- @Ignore
+
+Log4J2
+	- Java Logging Framework, successor of Log4J
+	- Logging consists in capturing and persisting information regarding the state of an application, making available at a later time for analysis as needed
+	- Setting up Log4J2
+		- define the logging configuration in the resource folder
+		- log4j2.[xml/properties/json/yaml]
+		- https://logging.apache.org/log4j/2.x/manual/configuration.html
+
+	- Main components
+		- Loggers
+			- responsible for recording log events and forwarding them to the appropriate appender(s)
+			- a root logger is provided by default - getRootLogger()
+		- Appenders
+			- responsible for delivering the log events to their destination target
+			- formatting of the event is delegated to a layout
+		- Layouts
+			- responsible for returning a byte array to be turned into as String using the appropriate layout
+	- Logging levels
+		- Trace
+			- debug message, used to capturae the flow through out the application
+				- identify part of app for debugging
+		- Debug
+			- identify general debugging event/ info helpful to debug
+		- Info
+			- identify general event
+		- Warning
+			- identify an event that might lead to an error
+		- Error
+			- identify an error occuring in the app, potentially recoverable
+		- Fatal
+			- identify a sever error that prevents the app from continuing its execution
+

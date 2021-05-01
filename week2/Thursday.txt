@@ -1,0 +1,128 @@
+Factory Design Pattern
+	- used to return/create an implementation of a specified interface
+	- used when the implementation does not matter/depends on different conditions that the calling class is not aware of
+	- enforces abstraction/code to the interface
+
+Singleton Design Pattern
+	- used to ensure that there is only one instantiation of a class
+	- enforced with the following conditions
+		- private constructor: Can't create an instance outside of the class
+		- private static instance of the singleton class: static enforces that there is only one because it is associated twith the class
+		- public static synchronized accessor method: this is what allows us to retrieve our private static instance method, can be synchronized to prevent threads from accessing it
+
+
+Domain integrity
+	- values fall within the constrants placed on the columns
+	- make sure that the values have the correct type
+
+Referential integrity
+	- Want db to be working properly within the constraints of the foreign key relationships
+	- do not want a record to reference another that no longer exists
+		- orphananed record
+	- we can delete on cascade to remove references
+
+Multiplicity
+	- refers to relationships between tables
+	- one-to-one
+		- exactly one row references another row in a different table
+		- ie: one SN is assigned to one person
+	- one-to-many/many-to-one
+		- exactly one row in a table is referenced by potentially many rows in another table
+		- ie: one employee has one department but one department may have many employees
+	- many-to-many
+		- several rows in one table can reference several rows in another table
+		- ie: friends can have many friends
+		- a junction table can be created in order to work with those
+
+Aliases
+	- used to give a temporary name of the purpose of querying or result sets
+	- allow more complicated queries to be easier to read
+		- SELECT A.ID, A.NAME, B.NAME FROM TABLE_A AS A 
+			JOIN TABLE_B AS B ON A.ID = B.ID;
+	- column aliases allow results set to be more readable, and also allow nested queries to be more readable as well
+		- SELECT avg(salary) as "Average Salary" from employees;
+
+Scalar and Aggregate functions
+	- scalar functions - used on a single input to retrieve a single output
+		- length, lower, upper, round, substr
+	- aggregate functions - used on a group of inputs to retrieve a single output
+		- count, avg, sum, max, min
+		- GROUP BY clause: used with aggregate function for better data analysis
+			- SELECT col1, aggregateFunction(col2) FROM table GROUP BY col1;
+		- HAVING: used with aggregate function for more specificity
+			- SELECT col1, aggregateFunction(col2) FROM table GROUP BY col1 
+				HAVING col2 = value;
+
+Normalization
+	- refers to a database design technique which reduces redundancy and ensures that data is stored logically
+	- consists in dividing larger tables into smaller tables and linking them using relationships
+		- focus on the first 3 NFs (Normal Forms)
+			- Usually a database is considered sufficiently normalized after 3NF
+		- 1NF
+			- each table needs a primary key
+			- tables should be comprised of atomic values
+				- values that cannot be broken down into smaller pieces
+			- no repeated columns (columns for the same purpose)
+				- ie: color1, color2, color 3
+		- 2NF
+			- must be 1NF
+			- no partial dependencies
+				- removing values that only depend on one part of a composite key 
+		- 3NF
+			- must be 2NF
+			- no transitive dependencies
+				- ie: fields that can be determined based on other fields
+
+
+
+						SalesStaff
+EmployeeID | SalesPerson | SalesOffice(street, city, state, zip)| Age | DOB | Customer1 | Customer2 | Customer3
+
+
+TCL: Transaction Control Language
+	- Transaction
+		- consists in combining multiple database operations into one unit of work
+		- PostgreSQL treats every SQL statement as being executed within a transaction if not specified otherwise
+			- If a BEGIN command is not used, a BEGIN statement is implicitely provided, if successful a COMMIT statement is wrapped around it
+			- Transaction block: statement(s) surrounded by BEGIN and COMMIT
+	- Relevant statements:
+		- BEGIN
+			- indicates the start of a transaction
+		- SAVEPOINT
+			- saves the current state of the database within that transaction
+		- ROLLBACK [savepoint]
+			- reverts the state of a database to a previous commit or savepoint
+		- COMMIT
+			- save/persist the changes to the database
+	- Properties of a transaction: ACID
+		- Atomicity
+			- One unit, transaction is completed as a whole or not at all
+		- Consistency
+			- database should be in a valid state before and after the transaction
+				- valid in regards to db constraints
+				- valid in regards to business logic of the application
+		- Isolation
+			- One transaction shouldn't be able to interfere with another
+			- Result of transactions executing concurently should be the same as if they occured subsequently
+		- Durability
+			- Commits are final and the changes made are persisted
+	- Transaction Isolation Levels
+		- Read uncommitted
+			- able to read/interact with uncommited data
+		- Read committed
+			- only able to interact with data committed BEFORE the query began
+			- PostgreSQL default setting 
+		- Repeatable read
+			- only see data committed before the transaction began
+			- allows for phantom read
+		- Serializable
+			- Strictest isolation level
+			- As if transactions occur one after the other
+		- Stricter level result in slower transaction execution
+	- Read phenomena
+		- Dirty read
+			- transaction reads data written by a concurrent uncommited transaction
+		- Nonrepeatable read
+			- a transaction re-reads data it has previously read and finds that the date has been modified by another transaction
+		- Phantom read
+			- transaction re-executes a query that returns a set of rows and finds out that the set of row has been modified by another transaction
