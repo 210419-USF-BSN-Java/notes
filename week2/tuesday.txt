@@ -1,0 +1,124 @@
+Basic application setup
+	- Separation of concerns: grouping classes/interfaces handling a similar issue/concern together.
+		- different layers of application
+	- models/ beans/ entities
+		- classes define types of objects used in the application
+		- ie: Person, Employee, Product
+	- data access object(DAOs)
+		- design pattern
+		- one layer in the application to handle data persistence (database, file...)
+			- We are using JDBC to interact with the data
+		- Leveraging Interfaces to declare desire behaviors to be easily able to change the implementation of the methods as needed
+			- Example: changing database vendors like oracle to postgressql
+			- CRUD
+				-Create , read, update, delete
+	- services
+		- where business logic is defined
+			- deals with combining data from daos to accomplish desired fun ctionality
+		- nested between dao layer and controller layer
+		- might combine methods/behaviors from different daos
+	- controllers / presentation layer
+		- Interacts with the user / front end
+
+
+Database
+	- Collection of related data
+	- Allows for preservation of data past the lifetime of the application
+
+DBMS
+	- Database management systems
+	- Collection of programs used to create and maintain databases
+		- Stores data in structured format
+		- Allows for concurrent use of data
+		- Control who has access to the data
+		- Maintain data integrity (consistency and accuracy of the data)
+		- Data backup and recovery
+	- RDBMS
+		- Relational Database Management Systems
+			- consist of a collection of tables where tables are connected and reference on another
+				- Tables contain:
+					- Columns: Categories of data - also referred to as fields
+					- Rows: Particular instance of that data category 0 also referred to as records(data entries, would correspond to our Java Objects)
+
+SQL
+	- Structured Query Language
+		- provides a mean to interact with database entities
+	- SQL implementations
+		- different "flavors" of SQL, arising from different vendors and platforms available
+			- Syntax may vary between implementations
+			- ie: OracleSQL, MySQL, NoSQL
+			- We will be using PostgreSQL
+
+Important distinction
+	- PostgreSQL is the RDBMS
+	- DBeaver is a tool to easily visualize and interact with database entities
+
+Database schema
+	- collection of database objects including tables, views, trigger, functions
+	- always belongs to one database
+		- a database may have multiple schema
+
+PostgreSQL
+	- free and open-source
+		- supports PL/pgSQL (Procedural language)
+			- allows to write functions/ specify more complex operation than just SQL
+	- Datatypes - https://www.postgresql.org/docs/10/datatype.html
+		- Character types
+			- CHAR
+				- fixed-length, blank padded
+			- VARCHAR
+				- variable-length with a limit
+			- TEXT
+				- variable-length with no limit
+		- Numeric types
+			- INTEGER
+			- DECIMAL
+				- user-specified precision
+			- SMALLINT
+			- BIGINT
+		- Temporal types
+			- DATE
+				- Date with no time
+			- TIME
+				- Time with no date
+			- TIMESTAMP
+				- date and time
+		- Autoincrementing integer
+			- SERIAL
+
+SQL Sublanguages
+	- represents different types of operation that may be performed on our database entities
+	- for the sake of this training, there are 5 SQL sublanguages
+	- DDL, DCL, DML, DQL, TCL
+		- DCL
+			- Data Control Language
+				- Manages user permision/access within the database
+					- define power/access to tables/schema
+				- GRANT and REVOKE
+		- DDL 
+			- Data Definition Language
+				- Statements that are used to construct/modify/delete database/schema/role(user)/table and their properties
+				- CREATE
+				- ALTER
+				- DROP
+				- TRUNCATE
+
+Contraints
+	- limit type of data entering tables to ensure accuracy/reliability of the data
+		- Primary key, combination of not null and unique
+		- Not null, column value cannot have a null value
+		- Unique, column value needs to be unique
+			- ie: username
+		- Check(condition), ensures that the condition is met
+		- References - Foreign key, identifies another row/record in another table
+
+Keys
+	- Primary keys
+		- Column or combination of columns which act as a unique identifier to a record in a table
+			- Composite key
+				- Combination of columns which act as the primary key
+	- Foreign keys
+		- used to illustrate relationships between tables
+			- think about it as a ref var that points to another table
+	- Candidate keys
+		- Any columns that can be used to uniquely identify a record in a table
