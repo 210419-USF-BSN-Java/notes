@@ -1,10 +1,13 @@
 # Training Calendar
 
+05/06
+- 2PM Central - Showcase (Java/Angular) 
+
 05/05 
 - 9:30AM Central - P0 presentations
-- 1PM Central - Kevin Meeting(until 2PM)
+- 1PM Central - Kevin meeting(until 2PM)
 
-05/03
+05/04
 - 4PM Central - Kevin meeting(rest of day)
 
 ---
