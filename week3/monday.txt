@@ -1,0 +1,47 @@
+Plan for Monday:
+	- Quiz on RevPro (50mins)
+	- Fill out surveys
+		- https://docs.google.com/forms/d/e/1FAIpQLSctgsH-__acrraIWMPDsV3XSFmTAujJNIxK9zKEhATsYsKHSw/viewform?embedded=true
+			- Select the USF location
+			- Select our batch
+			- Select WEEK 2
+	- Hackerrank Challenge
+		- https://www.hackerrank.com/2104javakevinweek3
+			- Since PostgreSQL is not available, please use OracleSQL the syntax should be the same/pretty similar.
+		- Work on them as a group, feel free to share ideas whether right or wrong and provide insights and opinions. 
+		If you were able to complete the problems on your own, please take a more active role in guiding the discussion.
+	- Stand ups/Sit downs
+		- Upload notes onto Github
+	- Environment setup for week 3, please make sure that everyone have these installed by tomorrow:
+		- Tomcat
+		- Postman
+		- VSCode - Optional, I will be using this for front end technologies
+	- Project Work
+		- Use the rest of the day to work on p0/review material
+	
+	- 1-o-1s with Kevin
+		- Will be conducted in a breakout room throughout the day
+		- ~ 10 minutes each
+		- Order for 1-o-1s:
+			- Martinez   James  
+			- Ricci   Rick  
+			- Hidalgo Fitzgerald   Teresa 
+			- Garcia   Ruben  
+			- Wright Sean  
+			- Nguyen   Felix  
+			- Espinal   Christopher  
+			- Nguyen Steven
+			- Choy   Ryan  
+			- Aarstad   Kevin  
+			- Dixon   Thomas 
+			- Wei   Guojun   
+			- Acharya Devaraj
+			- Cho   Kevin  
+			- Ivanchyk   Aliaksei  
+			- Weeks   Robbie  
+			- Omamalin   Uriah  
+			- Clayton   Nolan   
+			- Davis   Andrew  
+			- Campbell   Raymond  
+			- Shackleford   Raphael  
+			- Allen   Kemo  
