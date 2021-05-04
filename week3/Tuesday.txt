@@ -1,0 +1,97 @@
+Type of Client Server Architecture:
+	-2-tier architecture
+		-Client/application tier and DB tier
+	3-tier architecture
+		-Presentation Layer/ Application Layer/ Data Layer
+		-separation of concerns
+		-ie: any webapp
+	-n-tier architecture
+		-breaking down application in additional layers based on logic to decouple different aspects of the application
+		-can lead to complexity
+	
+HTTP
+	-transfer protocol used for information exchange over the world wide web
+	-consists of Request and Responses exchanged between a Client and a Server
+	-HyperText Transfer Protocol
+	-file types: JSON, XML, HTML pages, plain text
+	-HTTP request
+		-HTTP version
+			-current 1 /1.1
+		-Verb
+			-also known as HTTP methods, describes the operation to be performed
+			-4 main ones
+				-like CRUD
+				-GET - retrieve
+				-POST - create
+				-PUT - update
+				-DELETE - delete
+		-URL
+			-resource location
+		-Header
+			-metadata about the request
+		-Body
+			-can be empty
+			-information that you might want to include
+	-HTTP response
+		-HTTP Version
+		-Header
+			-metadata about the response
+		-Body
+			-Payload (if requesting a resource)
+			-can be empty
+		-Status codes
+			-provide information on the status of the request
+			-100s - 500s
+				-100s: informational
+				-200s: success
+				-300s: redirect
+				-400s: client-side error
+				-500s: server-side error
+
+VSCode extension for Tomcat: Tomcat for Java
+
+Maven command to generate a webapp archetype: mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.4
+
+Tomcat(8.5)
+	- webserver: processes client requests and sends back responses
+	- provides a web server environment in which Java code, packaged within a web archive(WAR), can run.
+	- Catalina
+		- Component of Tomcat
+		- Tomcat's servlet container
+			- manages our servlets and their lifecycle
+
+Servlets
+	- objects used to handle requests and responses
+	- servlets are not part of the Java standard library
+		- javax.servlets(java extensions)
+	- servlet hierarchy:
+		- Servlet (I)
+			|
+			- declare the lifecycle methods of a servlet
+				- init - initializes the servlet, called once
+					- called when a request is made the specific servlet does not have an instance
+				- service - called every time a request is received, handles the request
+				- destroy - called when the servlet is no longer needed, called once
+			|
+		- Generic Servlet (AC)
+			- default implementation of init and destroy are provided
+			|
+		- HTTP Servlet (AC)
+			- declares and implements doGet/doPost/doPut/doDelete, routed from the service method 
+			|
+		- YourServletImplementation (CC)
+	- deployment descriptor (web.xml)
+		- file that defines and maps the servlets so that the web container knows where to find them and what request to send them
+		- <servlet>
+			<servlet-name>name</servlet-name>
+			<servlet-class>com.revature.servlets.name</servlet-class>
+		  </servlet>
+		  <servlet-mapping>
+			<servlet-name>name</servlet-name>
+			<url-pattern>/endpoint</url-pattern
+		  </servlet-mapping>
+	- PrintWriter
+		- object that is retrieved from the response object
+			- response.getWriter();
+		- can write to the response body using .write()
+		- can write in plain text, in JSON, HTML... whatever is relevant to your application
