@@ -55,6 +55,7 @@ Maven command to generate a webapp archetype: mvn archetype:generate -Darchetype
 Tomcat(8.5)
 	- webserver: processes client requests and sends back responses
 	- provides a web server environment in which Java code, packaged within a web archive(WAR), can run.
+		- There is no main method in a war file
 	- Catalina
 		- Component of Tomcat
 		- Tomcat's servlet container
@@ -80,18 +81,30 @@ Servlets
 			- declares and implements doGet/doPost/doPut/doDelete, routed from the service method 
 			|
 		- YourServletImplementation (CC)
+			- 
 	- deployment descriptor (web.xml)
 		- file that defines and maps the servlets so that the web container knows where to find them and what request to send them
 		- <servlet>
 			<servlet-name>name</servlet-name>
 			<servlet-class>com.revature.servlets.name</servlet-class>
+			<load-on-startup>0</load-on-startup>
 		  </servlet>
 		  <servlet-mapping>
 			<servlet-name>name</servlet-name>
 			<url-pattern>/endpoint</url-pattern
 		  </servlet-mapping>
+		- load on startup
+			- allows to set the web container to call the init lifecycle for a servlet before the application starts rather than waiting for the first request.
 	- PrintWriter
 		- object that is retrieved from the response object
 			- response.getWriter();
 		- can write to the response body using .write()
 		- can write in plain text, in JSON, HTML... whatever is relevant to your application
+	
+JSON
+	- JavaScript Object Notation
+	- Often the preferred format for information transfer
+	- {"key":value, "key2":value2 }
+
+Object mappers
+	- Jackson library is used in order to convert our Java Objects into JSON and vice versa
