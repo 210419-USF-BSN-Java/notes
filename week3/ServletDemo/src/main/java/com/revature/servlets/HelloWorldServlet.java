@@ -19,6 +19,16 @@ public class HelloWorldServlet extends HttpServlet{
 		System.out.println("service method was called: " + request.getMethod() + " to " + request.getRequestURI());
 		PrintWriter pw = response.getWriter();
 		pw.write("<h1>Hello World</h1>");
+		
+		/*
+		 * switch(request.getMethod){
+		 * 		case "GET":
+		 * 			// call doGet
+		 * 		case "POST:
+		 * 			// call doPost
+		 * 
+		 * }
+		 */
 	
 	}
 	
