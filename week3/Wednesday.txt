@@ -1,0 +1,59 @@
+Plan:
+	- 9:30 AM: Project 0 presentations
+		- Fill out this form before then:
+			- https://forms.office.com/r/PrgGNbpWM9
+		- 5 minutes presentations, a verbal warning will be given at 4 minutes.
+			- introduction
+			- demo
+	- After the presentations are over, feel free to go to lunch, we will be resuming content at 2pm Central
+
+p0 order -
+- Wright Sean
+- Espinal Christopher
+- Nguyen Steven
+- Ricci Rick
+- Martinez James
+- Davis Andrew
+- Aarstad Kevin
+- Hidalgo Fitzgerald Teresa
+- Cho Kevin
+- Acharya Devaraj
+- Ivanchyk Aliaksei
+- Nguyen Felix
+- Garcia Ruben
+- Clayton Nolan
+- Shackleford Raphael
+- Choy Ryan
+- Omamalin Uriah
+- Campbell Raymond
+- Allen Kemo
+- Wei Guojun
+- Dixon Thomas
+- Weeks Robbie
+
+Servlet cont. 
+	- POST request
+		- query params vs request body
+			- query params: url?key=value
+				- not safe, visible in the url
+			- request body
+				- information sent is "hidden" in the body
+			- path params: url/{path-param}
+				- visible in the url
+	- views
+		- views should be located in the webapp folder of your application
+			- can be accessed directly via end point
+			- can be returned from servlet
+				- forward vs redirect
+					- redirect: 2 reqs/ 2responses (1st response being a 300s)
+						- use when not "part" of your application
+							- ie: an associate asks you a question and you redirect them to google
+					- forward: 1 req/ 1res send the request and response object to a different part of your application
+						- ie: to a view, to another servlet... etc
+
+To Do: 
+	- Implement Servlet methods
+	- Create html page to add new departments
+	- Create a frontpage (html) for Company app
+		- check out RevPro content for CSS/styling
+		- Practice/get familiar with HTML/CSS - Does not need actual functionality
