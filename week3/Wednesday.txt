@@ -1,0 +1,32 @@
+Plan:
+	- 9:30 AM: Project 0 presentations
+		- Fill out this form before then:
+			- https://forms.office.com/r/PrgGNbpWM9
+		- 5 minutes presentations, a verbal warning will be given at 4 minutes.
+			- introduction
+			- demo
+	- After the presentations are over, feel free to go to lunch, we will be resuming content at 2pm Central
+
+p0 order -
+- Wright Sean
+- Espinal Christopher
+- Nguyen Steven
+- Ricci Rick
+- Martinez James
+- Davis Andrew
+- Aarstad Kevin
+- Hidalgo Fitzgerald Teresa
+- Cho Kevin
+- Acharya Devaraj
+- Ivanchyk Aliaksei
+- Nguyen Felix
+- Garcia Ruben
+- Clayton Nolan
+- Shackleford Raphael
+- Choy Ryan
+- Omamalin Uriah
+- Campbell Raymond
+- Allen Kemo
+- Wei Guojun
+- Dixon Thomas
+- Weeks Robbie
