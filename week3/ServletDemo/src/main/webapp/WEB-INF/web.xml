@@ -13,6 +13,10 @@
 		<servlet-name>EmployeeServlet</servlet-name>
 		<servlet-class>com.revature.servlets.EmployeeServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>NewEmployeeServlet</servlet-name>
+		<servlet-class>com.revature.servlets.NewEmployeeServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>HelloWorldServlet</servlet-name>
 		<url-pattern>/hello</url-pattern>
@@ -20,5 +24,9 @@
 	<servlet-mapping>
 		<servlet-name>EmployeeServlet</servlet-name>
 		<url-pattern>/employees</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>NewEmployeeServlet</servlet-name>
+		<url-pattern>/new</url-pattern>
 	</servlet-mapping>
 </web-app>

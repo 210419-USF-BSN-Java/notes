@@ -108,3 +108,32 @@ JSON
 
 Object mappers
 	- Jackson library is used in order to convert our Java Objects into JSON and vice versa
+
+HTML
+	- hypertext markup language
+	- used to define the structure of a webpage using html tags
+	- basic structure of an html document
+		<!DOCTYPE html>
+		<html>
+			<head>
+				metadata
+			</head>
+			<body>
+				anything to be displayed on the webpage
+			</body>
+		</html>
+	- tags - represent elements
+	- attributes - properties of elements <div style="" width=""> </div>
+	- DOM - Document Object Model
+		- Tree like structure that represents the html document
+	- HTML5
+		- No longer have to use a doctype declaration
+		- Semantic elements
+	- div - generic block
+	- a - href attribute, makes link on a webpage
+	- br - line break, self closing
+	- img - src attribute, self closing
+	- ol/ul - ordered vs unordered lists
+	- table - tables
+	- form - to create a form to capture user input, action and method attribute
+	
