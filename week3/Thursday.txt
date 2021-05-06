@@ -1,0 +1,59 @@
+Resources HTML/CSS/JS:
+	- https://developer.mozilla.org/en-US/
+	- https://www.w3schools.com/
+	- RevPro
+
+HTML - Review
+	- Hypertext mark-up language
+		- not a programming language
+	- Defines the structure of a webpage using elements represented with HTML tags
+		- these tags follow a hierarchal/ nested structure
+		- elements can have attributes, name="value", these are used to provide more information to these elements
+			- global attributes (for all html elements) - class, id, style...
+			- local attributes (element specific) - href, src
+	- Inline vs Block elements
+		- inline: can be put next to another (span)
+		- block: take up the the whole width of the container (div)
+	- Semantic elements
+		- provide more meanings to tags
+			- helps with accessibility
+		- Section, Footer, Header, Nav... instead of having a bunch of divs
+	- Forms:
+		- tag that can be used to submit information
+		- <form>
+			<label> </label>
+			<input/>
+				- has attribute type="" to define what kind of input to be passed in
+				- has attribute name="" to refer to the information to be processed
+	- self closing tags, close themselves. <img src="../myimage.png"/>
+
+CSS
+	- cascading style sheets
+	- adds looks/style to HTML
+	- HTML is the structure of the document, CSS is the styling
+	- consists 
+		- selector {
+			property: value;
+		}
+	- CSS can be included in 3 different ways
+		- inline
+			- in the HTML tag directly
+			- <div style="property:value"></div>
+		- internally
+			- in the HTML document, head 
+			- <style> 
+				selector {
+					property: value;
+				}
+			  </style>
+		- externally
+			- from an external stylesheet, best practive because can reuse it
+			- <link rel="stylesheet" href="example.css"/>
+	- Selectors
+		- used to target specific elements to apply style to
+			- tag
+			- class (.className)
+			- id (#idName) - "supposed" to be unique to an element, but not enforced
+			- more depending on the need(find more in one of the resources)
+		- the order in which styles are applied is based on specificity
+		- most to least: id > class > tag
