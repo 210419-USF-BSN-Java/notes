@@ -1,0 +1,146 @@
+Resources HTML/CSS/JS:
+	- https://developer.mozilla.org/en-US/
+	- https://www.w3schools.com/
+	- RevPro
+
+HTML - Review
+	- Hypertext mark-up language
+		- not a programming language
+	- Defines the structure of a webpage using elements represented with HTML tags
+		- these tags follow a hierarchal/ nested structure
+		- elements can have attributes, name="value", these are used to provide more information to these elements
+			- global attributes (for all html elements) - class, id, style...
+			- local attributes (element specific) - href, src
+	- Inline vs Block elements
+		- inline: can be put next to another (span)
+		- block: take up the the whole width of the container (div)
+	- Semantic elements
+		- provide more meanings to tags
+			- helps with accessibility
+		- Section, Footer, Header, Nav... instead of having a bunch of divs
+	- Forms:
+		- tag that can be used to submit information
+		- <form>
+			<label> </label>
+			<input/>
+				- has attribute type="" to define what kind of input to be passed in
+				- has attribute name="" to refer to the information to be processed
+	- self closing tags, close themselves. <img src="../myimage.png"/>
+
+CSS
+	- cascading style sheets
+	- adds looks/style to HTML
+	- HTML is the structure of the document, CSS is the styling
+	- consists 
+		- selector {
+			property: value;
+		}
+	- CSS can be included in 3 different ways
+		- inline
+			- in the HTML tag directly
+			- <div style="property:value"></div>
+		- internally
+			- in the HTML document, head 
+			- <style> 
+				selector {
+					property: value;
+				}
+			  </style>
+		- externally
+			- from an external stylesheet, best practive because can reuse it
+			- <link rel="stylesheet" href="example.css"/>
+	- Selectors
+		- used to target specific elements to apply style to
+			- tag
+			- class (.className)
+			- id (#idName) - "supposed" to be unique to an element, but not enforced
+			- more depending on the need(find more in one of the resources)
+		- the order in which styles are applied is based on specificity
+		- most to least: id > class > tag
+
+Webservices/ Rest
+	- software that allows for the exchange of information over a network
+	- exposed via a consumable API
+
+Service Oriented Architecture (SOA)
+	- Concept of breaking up applications into discrete units of functionality
+		- results in modular an independent applications
+			- allows for services to integrate together more easily
+	- black-box implementation
+		- don't know how the service was implemented
+
+REST
+	- Architecture - implementation of SOA
+	- stands for REpresentational State Transfer
+	- used for the exchange and manipulation of "resources"
+		- any information that can be a resource
+	- REST leverages the HTTP protocol and can support any content-type (JSON, XML...) 
+	- REST Constraints/Principles
+		- client-server architecture: front end and the backend are two separate applications interacting over a network
+		- statelessness: server does not track user states
+		- cacheability: particular responses from the backend can be cached for easy reuse
+		- layered system: application may use a layered architecture however layers are only aware of the next one in line
+		- uniform interface: patterns for requests/responses
+			- URI(Uniform Resource Identifier): used to identify a particular resource:
+				[address of the application]/[collection]/[identifier]
+			- resources are manipulated through representations
+			- self-descriptive messages: using HTTP verbs and URI to describe the desired behavior
+		- HATEOAS
+			- Hypermedia As The Engine Of Application State
+			- Hypermedia links can be placed in the response content
+				- allows the client to dynamically navigate to the appropriate resource using hypermedia link
+		- code on demand: OPTIONAL
+			- backend can provide code/scripts to offer additional functionality to the front end
+
+BootStrap
+	- Library of classes that can be leveraged as premade templates
+		- import bootstrap in html page
+			- find on Bootstrap website
+		- use classes to style elements
+	- Responsive Web Design
+		- websites and webpages automatically adapt to different screen sizes/types (ie: laptop, phones...)
+		- leverages a grid system to enable that behavior
+
+
+Servlets - Continued
+
+Config/Context Params
+	- Parameters for servlets that can be established in web.xml
+	- Context parameters: available to all servlets
+	- Config(init) parameters: only available to servlets in which they have been defined
+		- .getServletContext().getParam("") (?)
+		- .getServletConfig().getParam("") (?) 
+
+Session Management
+	- Tracking user state
+	- Persisting state beyond the lifecycle of an HTTPServletRequest object
+	- Saving information in the browser
+		- cookies
+		- URL rewriting/appending
+			- shouldn't save anything sensitive in a URL
+		- Hidden form field 
+			- can be tedious to maintain/not best way to do it
+		- HTTP session object
+			- an object retrieved from the HttpServletRequest
+				- .setAttribute(key, value);
+				- .getAttribute(key)
+				- .invalidate()
+					- removes session
+			- .getSession
+				- gets the current one, or returns a new one
+			- .getSession(boolean create)
+				- gets the current one, if false, won't create a new one
+
+Front Controller Design Pattern
+	- One Servlet(Controller) to rule them all
+		- handles of the requests
+		- rather than handling each endpoint with another servlet
+		- delegates tasks to "delegates"
+		- centralized control
+			- easier to handle
+				- sessions
+				- validation
+				- logging
+		- leverages helper to break down the url and route them to the appropriate delegates
+		- extends DefaultServlet
+			- easier access to static webpages
