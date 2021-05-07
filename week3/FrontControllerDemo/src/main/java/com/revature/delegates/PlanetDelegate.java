@@ -27,9 +27,14 @@ public class PlanetDelegate implements Delegatable {
 				break;
 			case "POST":
 				// logic to add a planet
+				Planet planet = new Planet();
+				planet.setId(Integer.parseInt(request.getParameter("id")));
+				planet.setName(request.getParameter("name"));
+				planet.setColor(request.getParameter("color"));
 				break;
 			default:
 				response.sendError(400, "Request not supported.");
+				break;
 		}
 	}
 

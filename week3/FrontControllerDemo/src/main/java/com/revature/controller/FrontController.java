@@ -23,7 +23,7 @@ public class FrontController extends DefaultServlet {
 		
 		// Stripping the URL to point to the appropriate delegate
 		String path = request.getRequestURI().substring(request.getContextPath().length());
-		System.out.println(path);
+		System.out.println("Path: " + path);
 		
 		/*
 		 * Based on the url, we want to map the request to the appropriate URL
