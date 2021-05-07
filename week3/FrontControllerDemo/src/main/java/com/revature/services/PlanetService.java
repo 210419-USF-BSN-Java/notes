@@ -16,4 +16,8 @@ public class PlanetService {
 	public Planet getPlanetById(int id) {
 		return pd.getPlanetById(id);
 	}
+	
+	public int createPlanet(Planet p) {
+		return pd.createPlanet(p);
+	}
 }
