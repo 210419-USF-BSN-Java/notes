@@ -21,7 +21,7 @@ public class PlanetDelegate implements Delegatable {
 	public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
 		/*
-		 * Path received has been stripped of [...]/planets
+		 * Path received has been stripped of [...]/planets/
 		 * If path:
 		 * 		- {id}
 		 * 			- GET: Return planet of that id
@@ -44,14 +44,19 @@ public class PlanetDelegate implements Delegatable {
 				p.setColor(request.getParameter("color"));
 				p.setId(ps.createPlanet(p));
 				response.setStatus(201);
-				System.out.println("Hey");
+				// Optional, just wanted to see that the planet is added, effectively sending a new GET request to /planets
 				response.sendRedirect("planets");
-				
 				break;
 			default:
 				response.sendError(400, "Request not supported.");
 			}
 		} else {
+			// Better validation is needed here
+			/*
+			 * Path params vs Query params: 
+			 * 		- Path [...]/{id}
+			 * 		- Query [...}?{key}={pair}
+			 */
 			int planetId = Integer.valueOf(path);
 			Planet p = null;
 
