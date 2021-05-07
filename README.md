@@ -1,7 +1,7 @@
 # Training Calendar
 
-05/06
-- 2PM Central - Showcase (Java/Angular) 
+05/10
+- 10:30 Central - QC (SQL, HTML/CSS, Servlets)
 
 05/05 
 - 9:30AM Central - P0 presentations

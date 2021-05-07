@@ -1,0 +1,51 @@
+JavaScript
+	- a scripting language for client-side web applications
+		- can also be used server side
+		- scripting language, an interpreted language
+			- not compiled, no intermediate step/no compilation process
+			- JIT - Just In Time compilation
+		- supported by all modern browsers
+	- ECMA, manages the standard specification for JS
+		- these standards are called ECMAScript
+		- ES6, ES7, introduce new functionality to JS
+	- Multi-paradigmed
+		- functional programming, OO...
+	- Dynamically/Weakly typed
+		- variables don't have to be declared with any specific type, their type can be changed dynamically
+			- type coersion: evaluating 4 == '4' will return true
+			- to avoid type coersion use ===
+	- semi-colon injections: puts semi-colons at the end of statements implicitely when it feels appropriate
+		- helpful to avoid running into issues by placing semi colons explicitely
+	- Types
+		- "primitive"
+			- boolean
+			- number
+			- null
+			- undefined
+			- symbol
+			- string
+		- "object"
+			- objects
+				- stored as key-value pairs
+				- very similar to JSON
+					- {
+						"id":5,
+						"name":"Name"
+					  }
+			- arrays
+			- functions
+
+		- Truthy and Falsy(?)
+			- Any type in JS will evaluate to either true or false
+			- Falsy values
+				- null
+				- undefined
+				- 0
+				- "" - empty strings
+				- false
+				- NaN (not a number)
+	- Ways to include js into an HTML page
+		- between <script> enter script here </script> in html doc
+		- externally <script src="path/to/jsFile"></script>
+			- use defer to delay loading the scripts
+	
