@@ -26,6 +26,7 @@ public class RequestHelper {
 		uriString.replace(0, request.getContextPath().length() + 1, "");
 		// uriString = planets/1
 
+		// If there are no /:id params is what the below means
 		if (uriString.indexOf("/") != -1) {
 			/*
 			 * Here we set an attribute 'path' to be used in the delegates for additional information, ie: retrieve by id

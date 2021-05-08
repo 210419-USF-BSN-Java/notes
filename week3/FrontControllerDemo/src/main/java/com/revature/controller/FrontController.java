@@ -28,6 +28,8 @@ public class FrontController extends DefaultServlet {
 		 * Initially the request URI might look something like: /FrontControllerDemo/planets/1
 		 * the URI is cleaned by returning a substring removing "/FrontcontrollerDemo" (the context path)
 		 */
+		//String url = request.getRequestURI();
+		//String contextPath = request.getContextPath();
 		String path = request.getRequestURI().substring(request.getContextPath().length());
 		
 		/*
