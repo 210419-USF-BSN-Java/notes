@@ -1,0 +1,51 @@
+JavaScript scopes:
+	- where a declared variable is available
+	- global
+		- variables declared outside of a function scope
+			- accessible from anywhere within the script
+	- function
+		- variables declared within a function block{}
+	- block
+		- new to ES6 
+		- let and const
+			- let can be reassigned, but not redeclared
+			- const cannot be reassigned nor redeclared
+			- (var can be both reclared and reassigned)
+		- variables declared within a block scope {}
+
+Hoisting
+	- variables declared with var will be hoisted to the top of their scope
+		- top of global/function scope
+	- used before they are declared
+	- functions get hoisted
+
+This
+	- refers to the current scope
+		- ie: the object it is used in
+
+Template literals
+	- declared between `` (backticks)
+	- preserves new line
+	- easier than using concatenation + 'some string' +
+	- `Some value is ${x.value}`
+	
+
+Arrays
+	- Can have different datatypes in JS
+	- Dynamically sized
+	- Can iterate using for, for in, for of(if applicable), foreach
+	- Do look into array functions
+		- join, splice... (QC might ask about it)
+
+Arrow notation/functions....
+	- short hand syntax for writing functions
+	- declaratation, parameters, statements 
+		- var x = param => statement
+
+prototypical inheritance
+	- __proto__ allow objects to inherit from one another
+	- leverage fields and behaviors from parent object
+
+closures
+	- using/return an innerfunction from outside its outerfunction to access variables in the outer function's scope
+	- mimics encapsulation as the variables acts as "private" variables".
