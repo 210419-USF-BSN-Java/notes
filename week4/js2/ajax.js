@@ -68,7 +68,7 @@ function populateData(response) {
 
         statName += `<td>${tempName}</td>`;
         stats += `<td>${response.stats[i].base_stat}</td>`;
-    }
+    } 
 
     dataSection.innerHTML = `
         <img src=${response.sprites.front_default}>
