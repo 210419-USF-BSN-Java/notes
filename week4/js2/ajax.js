@@ -40,56 +40,57 @@ function getData() {
 }
 
 function populateData(response) {
+    console.log(response);
     /*
         Use DOM Manipulation to write the data into our HTML page in the section tag.
     */
-
-    let dataSection = document.getElementById('data');
-    let arr = [];
+    let statName = [];
+    let stats = [];
+    let ability =[];
     let n = response.name;
     let t = response.types[0].type.name;
-    let statName;
-    let stats;
-
     n = n.charAt(0).toUpperCase() + n.slice(1);
     t = t.charAt(0).toUpperCase() + t.slice(1);
 
+    // abilities
     for (i = 0; i < Object.keys(response.abilities).length; i++) {
 
         let temp = response.abilities[i].ability.name;
         temp = temp.charAt(0).toUpperCase() + temp.slice(1);
-        arr.push(temp);
-    }
+        ability.push(`<li>${temp}</li>`);
+    };
 
     // stats
     for (i = 0; i < Object.keys(response.stats).length; i++) {
-        tempName = response.stats[i].stat.name;
+        let tempName = response.stats[i].stat.name;
         tempName = tempName.charAt(0).toUpperCase() + tempName.slice(1);
 
-        statName += `<td>${tempName}</td>`;
-        stats += `<td>${response.stats[i].base_stat}</td>`;
-    } 
+        statName.push(`<td>${tempName}</td>`);
+        stats.push(`<td>${response.stats[i].base_stat}</td>`);
+    };
 
-    dataSection.innerHTML = `
-        <img src=${response.sprites.front_default}>
+    document.getElementById('data').innerHTML = `
+        <img src=${response.sprites.front_default}></img>
         <div>Name: ${n}</div>
         <div>Type: ${t} </div>
-        <div>Abilities: ${arr} </div>
+        <ul id="append">Abilities: ${ability.join("")}</ul>
+    `;
+    document.getElementById('table').innerHTML = ` 
+
         <table id="tableId"> 
-                <thead>
-                    <tr>
-                        <th>Stats</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr >
-                        ${statName}
-                    </tr>
-                    <tr>
-                        ${stats}
-                    </tr>
-                </tbody>
-         </table>
-    `
-    console.log(response);
+            <thead>
+                <tr>
+                    <th>Base Stats</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr >
+                    ${statName.join("")}
+                </tr>
+                <tr>
+                    ${stats.join("")}
+                </tr>
+            </tbody>
+        </table>
+    `;
 }
