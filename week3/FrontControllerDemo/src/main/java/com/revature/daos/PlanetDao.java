@@ -27,4 +27,16 @@ public class PlanetDao {
 		}
 		return null;
 	}
+	
+	public int createPlanet(Planet planet) {
+		int id = 0;
+		for(Planet p: planets) {
+			if(p.getId() > id) {
+				id = p.getId();
+			}
+		}
+		planet.setId(id+1);
+		planets.add(planet);
+		return id+1;
+	}
 }

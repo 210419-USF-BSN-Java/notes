@@ -28,7 +28,7 @@ public class FrontController extends DefaultServlet {
 		/*
 		 * Based on the url, we want to map the request to the appropriate URL
 		 */
-		if(path.startsWith("/static/")) {
+		if(path.startsWith("/static/") || path.equals("/") || path.equals("/index.html")) {
 			super.doGet(request, response);
 		}else {
 			rh.processRequest(request, response);
