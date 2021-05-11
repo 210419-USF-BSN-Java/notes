@@ -14,6 +14,9 @@
      
 5. What are some HTML5 tags? Why were HTML5 tags introduced?
 
+    article/aside/canvas/header/footer/nav/section
+            Semantics/
+
 6. Do all tags come in a pair? What are the other things inside tags called? list some.
    
 7. What is the syntax for a comment in HTML?
@@ -31,14 +34,16 @@
 13. Syntax for styling an element? What is a class and how to style them? What is an id? how to style? difference?
 
 14. What if I want to select child elements, What syntax is that?
+    >
 
 15. Can I select multiple elements at once? How?
 
 16. What is a pseudo-class? What is syntax for selecting that?
+:
 
 17. What is Bootstrap?
 
-18. Describe the Bootstrap grid system
+18. Describe the    
 
 ## JavaScript
 
