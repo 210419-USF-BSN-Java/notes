@@ -58,3 +58,21 @@ AJAX
 		- 2: Headers received -- request has been sent, retrieving headers from response
 		- 3: Loading -- 
 		- 4: Done -- Response has been received
+
+Fetch API
+	- an API in JS that allows to send HTTP requests and receive HTTP responses like AJAX
+	- introduced in ES6
+	- fetch function returns a response as a promise
+		- fetch(URI)  -- Get request
+		- fetch(URI, {method: 'METHOD', body: JSON.stringify(obj)}); / adding additional information
+	- can be used with async and await
+		- introduced in ES7
+		- async is used on a function to specify that it will return a promise or is making an asynchronous call
+		- await can be used in an async function when making async calls
+		- async function sendReq(){
+			// specify behavior
+			let response = await fetch(uri);
+			if(response.status <= 200 ...){
+				let obj = awwaot response.json();
+			} 
+		} 
