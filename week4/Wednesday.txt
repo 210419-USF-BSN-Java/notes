@@ -1,0 +1,67 @@
+AWS
+	- Amazon Web Services
+	- Offers cloud solutions to customer needs
+	- Why cloud?
+ 		- cost saving
+			- not have to manage servers on-premise
+				- staff
+				- maintaining, upgrading hardware...
+		- Infrastruture
+		- Scalability
+			- Auto-scaling
+				- "Pay for what you use, can adapt for short term needs"
+		- Durability
+	Regions and Availability zones
+		- Regions: groupings of AWS zones available worldwide
+		- Availibity zones: data centers containting infrastructure
+	
+	Cloud computing models
+		- models in which cloud services can be provided
+			- https://www.cloudflare.com/learning/serverless/glossary/platform-as-a-service-paas/
+		- IaaS
+			- Infrastructure as a Service
+			- user needs to provide and manage: Application, Data, Runtime...
+				- ie: EC2
+		- PaaS
+			- Platform as a Service
+			- user needs to provide and manage: Application Data
+				- ie: RDS
+		- SaaS
+			- Software as a Service
+			- everything is abstracted away
+				- ie: Gmail
+
+Services
+	- S3
+		- Simple Storage Service
+		- Highly scalable storage
+		- High durability and availability
+		- Can programatically access using Amazon SDK
+		- Can host static webpages
+			- https://docs.aws.amazon.com/AmazonS3/latest/userguide/HostingWebsiteOnS3Setup.html
+	- RDS
+		- Host a db on AWS
+		- EC2 with relevant RDS installed on it
+		- Checkout RevPro Content
+	
+	- Elastic Beanstalk
+		- Checkout RevPro Content
+	- Route 53
+		- Checkout RevPro Content
+	- EC2
+		- Elastic Cloud Compute
+		- Virtual machine on the cloud
+	- AMI
+		- Amazon Machine Image
+		- Template that is needed to launch an instance of a virtual server
+		- Includes OS
+			- We're going to be using Amazon Linux 2
+	- EBS
+		- Elastic Block Storage
+		- Block storage that is associated to EC2
+		- Virtual hard drive
+		- Backed up in the Availability Zone
+
+	- Security Groups
+		- Details what traffic is allowed in and out
+		- Traffic filter
