@@ -1,0 +1,8 @@
+com\revature\daos\UserDao.class
+com\revature\daos\UserDaoImpl.class
+com\revature\models\User.class
+com\revature\delegates\UserDelegate.class
+com\revature\controller\FrontController.class
+com\revature\controller\RequestHelper.class
+com\revature\delegates\ViewDelegate.class
+com\revature\delegates\AuthDelegate.class

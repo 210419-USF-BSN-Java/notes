@@ -2,8 +2,6 @@ let apiURL = 'https://pokeapi.co/api/v2/pokemon/';
 
 document.getElementById('getData').onclick = getData;  // Assign functionality
 
-sb.onClick = getSprite;
-
 function getData(){
     
     // Retrieving the user input, in this case the pokemon id to be retrieved
@@ -35,7 +33,7 @@ function getData(){
                 // Data processing behavior
                 populateData(response);
             } else{
-                // Behavior if request was unsuccessful
+                document.getElementById('data').innerHTML = "<img src=https://ih1.redbubble.net/image.731955024.9007/farp,small,wall_texture,product,750x1000.u3.jpg />";
             }
         }
     }
@@ -47,30 +45,34 @@ function populateData(response){
     */
    console.log(response);
 
-   let section = document.getElementById('data');
-   section.innerHTML = 
-   `
-        <h1>Name: ${response.name}</h1>
-        <h1>Height: ${response.height}</h1>
-        <h1>Weight: ${response.weight}</h1>
-        <h1>ID: ${response.id}</h1>
-        <img src =${response.sprites.back_default}>
-        <img src =${response.sprites.front_default}>
-        
-   `
-
-   for(var i = 0; i < response.abilities.length; i++){
-    section.innerHTML += 
-    `
-        <h2>Ability ${i}: ${response.abilities[i].ability.name}</h2>
-    `
-   }
+   let dataSection = document.getElementById('data');
    
-//    let i = 0;
-//    section.innerHTML += `<h3>Type: </h3>`
-//     do{
-//         section.innerHTML += `<h3>${response.types[i].type.name}</h3>`
-//         i++;
-//     }while (response.types[i] != null)
+   // Resets the innerHTML before loading new data
+   dataSection.innerHTML ='';
 
+   let nameTag = document.createElement('h3');
+   nameTag.innerHTML = response.name.toUpperCase();
+   
+   let abilitiesArray = response.abilities;
+   let abilities = document.createElement('ul');
+   // Appending list elements to a ul
+   for(let ability of abilitiesArray){
+       let abilityLi = document.createElement('li');
+       abilityLi.innerHTML = ability.ability.name;
+       abilities.appendChild(abilityLi);
+   }
+
+   // Appending h3 and List to the section tag
+   dataSection.appendChild(nameTag);
+   dataSection.appendChild(abilities);
+
+   // Appending sprites to section
+   let spritesObject = response.sprites;
+   for(let sprite in spritesObject){
+       if(spritesObject[sprite] && spritesObject[sprite].length > 2){
+           let spriteImg = document.createElement('img');
+           spriteImg.src = spritesObject[sprite];
+           dataSection.appendChild(spriteImg);
+       }
+   }
 }
