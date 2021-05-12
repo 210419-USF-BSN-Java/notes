@@ -2,41 +2,19 @@ let apiURL = 'https://pokeapi.co/api/v2/pokemon/';
 
 document.getElementById('getData').onclick = getData;  // Assign functionality
 
-function getData(){
+async function getData(){
     
     // Retrieving the user input, in this case the pokemon id to be retrieved
     let userInput = document.getElementById('dataInput').value;
 
-    // 4 Steps to make an AJAX call
-    // 1: Create an XMLHttpRequest object
-    let xhr = new XMLHttpRequest();
+    let response = await fetch(apiURL+userInput);
 
-    // 2: Set a callback function to the readystatechange event
-    xhr.onreadystatechange = receiveData;
-
-    // 3: Open the request/parameterize it
-    xhr.open('GET', `${apiURL}${userInput}`);
-
-    // 4: Send the request
-    xhr.send();
-
-    function receiveData(){
-        let dataSection = document.getElementById('data');
-
-        // Ready state is done, reponse has been retrieved
-        if(xhr.readyState === 4){
-            // Status code is in the 200s, meaning successful
-            if(xhr.status >= 200 && xhr.status < 300){
-                let response = xhr.responseText;
-                // Converting JSON to JS object
-                response = JSON.parse(response);
-                // Data processing behavior
-                populateData(response);
-            } else{
-                document.getElementById('data').innerHTML = "<img src=https://ih1.redbubble.net/image.731955024.9007/farp,small,wall_texture,product,750x1000.u3.jpg />";
-            }
+    if(response.status >= 200 && response.status <300){
+        let data = await response.json();
+        populateData(data);
+       } else{
+              document.getElementById('data').innerHTML = "<img src=https://ih1.redbubble.net/image.731955024.9007/farp,small,wall_texture,product,750x1000.u3.jpg />";
         }
-    }
 }
 
 function populateData(response){
