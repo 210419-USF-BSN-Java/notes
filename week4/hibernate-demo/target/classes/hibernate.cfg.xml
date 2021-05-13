@@ -7,11 +7,13 @@
 <hibernate-configuration>
 
     <session-factory>
+    
+    
 
         <!-- JDBC properties -->
-        <property name="hibernate.connection.url">jdbc:postgresql://database-1.c1rdg0nkpwr7.us-east-2.rds.amazonaws.com:5432/postgres</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://database-1.c9r6curxr2qu.us-east-2.rds.amazonaws.com:5432/postgres</property>
   		<property name="hibernate.connection.username">postgres</property>
-   	 	<property name="hibernate.connection.password">p4ssw0rd</property>
+   	 	<property name="hibernate.connection.password">password</property>
    	 	
    	 	
    	 	<!-- Driver properties -->
@@ -23,6 +25,7 @@
 		<property name="hibernate.hbm2ddl.auto">create</property>
 		
 		<mapping class="com.revature.models.Department"></mapping>
+		<mapping class="com.revature.models.Employee"></mapping>
     </session-factory>
 
 </hibernate-configuration>

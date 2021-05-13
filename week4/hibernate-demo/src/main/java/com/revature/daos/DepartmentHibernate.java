@@ -3,6 +3,7 @@ package com.revature.daos;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 
 import com.revature.models.Department;
@@ -20,8 +21,9 @@ public class DepartmentHibernate implements DepartmentDao{
 
 	@Override
 	public Department getById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session s = HibernateUtil.getSessionFactory().openSession();
+		Department d = (Department) s.get(Department.class, id);
+		return d;
 	}
 
 	@Override
@@ -41,8 +43,10 @@ public class DepartmentHibernate implements DepartmentDao{
 
 	@Override
 	public Integer delete(Department d) {
-		// TODO Auto-generated method stub
-		return null;
+		Session s = HibernateUtil.getSessionFactory().openSession();
+		s.delete(d);
+		s.close();
+		return 0;
 	}
 
 }
