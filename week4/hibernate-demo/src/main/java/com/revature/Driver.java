@@ -19,7 +19,10 @@ public class Driver {
 //		
 //		s.close();
 		
-		dd.add(d);
+		System.out.println(dd.add(d));
 		System.out.println(dd.getAll());
+		d.setMonthlyBudget(3000.0);
+		dd.update(d);
+		System.out.println(dd.getById(1));
 	}
 }

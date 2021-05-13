@@ -8,6 +8,6 @@ public interface DepartmentDao {
 	public Department add(Department d);
 	public Department getById(Integer id);
 	public List<Department> getAll();
-	public Integer update(Department d);
-	public Integer delete(Department d);
+	public void update(Department d);
+	public void delete(Department d);
 }
