@@ -19,7 +19,7 @@
         <property name="hibernate.connection.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
         <property name="hibernate.default_schema">hibernate</property>
 		<property name="hibernate.show_sql">true</property>
-		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.format_sql">false</property>
 		<property name="hibernate.hbm2ddl.auto">create</property>
 		
 		<mapping class="com.revature.models.Department"></mapping>

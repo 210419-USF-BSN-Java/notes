@@ -33,6 +33,10 @@ Class/Interfaces in Hibernate:
 		- represents the database connection
 	- Transaction (I)
 		- manages ACID-compliant transactions
+		- from session object
+			- .beginTransaction()
+				- .commit()
+				- .rollback()
 	- Query (I)
 		- used to write complex CRUD operations using HQL
 	- Criteria (I)
@@ -62,15 +66,35 @@ hibernate.cfg.xml
 		- annotation:
 			-  <mapping class="com.revature.models.EntityName"></mapping> -> defined in hibernate.cfg.xml
 			- imported from JPA unless specified otherwise
-				- @Entity
-				- @Table
-				- @Id
-				- @SequenceGenerator
-				- @GeneratedValue
-				- @Column
-				- @Transient
-				- @OneToMany/@ManyToOne/@OneToOne
-				- @JoinTable
+				- @Entity: must go at the top of a class for Hibernate to map it as entity
+				- @Table: goes at the top of a class that is mapped to a table in the database
+					optional @Table(name="entity_name") if name in DB is different than the object name
+			- @Id: goes above the primary key field
+			- @SequenceGenerator(name="seqGen", sequenceName="entity_seq", allocationSize=1)
+				name is an arbitrary name for the sequence. it is only referenced in the GeneratedValue annotation
+				sequenceName is the name of the sequence in the database
+				allocationSize is how much the sequence increments when you create an object
+			- @GeneratedValue(generator="seqGen", strategy=GenerationType.SEQUENCE)
+				generator is the name given in the @SequenceGenerator annotation
+			- @GeneratedValue(strategy=GenerationType.IDENTITY)
+				strategy is how the incrementation occurs 
+			- @Column: implicitly above all fields in classes annotated with @Table
+				@Column(name="column_name")
+			- @Transient: over a field that should not be persisted to the database
+			- @OneToMany/@ManyToOne/@OneToOne: over a field that is an object/collection of objects from another table
+				which one to use depends on what the relationship is between the objects.
+					- can include fetch and cascade properties
+				@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+		- @JoinColumn(name="column_name"): goes with the above multiplicity relationship annotations.
+			specifies which column (foreign key) in the database connects these objects.
+			use the JavaDocs to clarify which table the column should be coming from.
+		- @ManyToMany: over a field that is a collection of objects from another table.
+		- @JoinTable(name="table_name", 
+				joinColumn=@JoinColumn(name="column_name"),
+				inverseJoinColumn=@JoinColumn(name="column_name"))
+			goes with multiplicity annotations that use a join table/multiplicity table in the DB
+			joinColumn references the foreign key to the "owner" of the relationship
+			inverseJoinColumn references foreing key to what is "owned"
 
 Object states in Hibernate
 	- transient
@@ -85,16 +109,46 @@ Object states in Hibernate
 
 DAO/CRUD methods
 	- .get() vs .load()
-		- get retrieves the full object and returns null if the object doesn't exist
-		- load retrieves a proxy and throws an exception if the object doesn't exist
-	- .update() vs .merge() 
+		- get: 
+			- eagerly fetches object
+			- returns null when getting an id not in db
+		- load:
+			- lazily fetches an object as proxy
+			- throw an exception if the object doesn't exist
+	- .update() vs .merge()
+		- update:
+			- void return
+			- if a persistent object in session with same id, throws an exception
+			- if try to update an object with no id in db, throws an exception
+		- merge:
+			- returns merged object
+			- if there's a persistent object with same id in session, will merge with with persistent object
 	- .save()
+		- returns serializable id, (primary key)
+		- can make detached and transient objects persistent
 	- .persist()
+		- void return
+		- throws exception if making detached object persistent
 	- .delete()
+		removes the object from the DB
 	- .saveOrUpdate()
+		will save the object if it is not in the DB (no matching ID), otherwise will update
+
 
 Lazy Loading vs Eager fetching
 	- when fetched eagerly, the entire object is retrieved as soon as the parent object is retrieved
 	- when fetched lazily, a proxy is retrieved until that object is used in the session
 		- proxy
 			- a dummy/empty object aside from a unique identifier (primary key)
+
+Native Queries
+	- Just writing plain SQL, NativeQuery<T> 
+	- not best practice(mixing languages) 
+		- might need to rewrite if SQL dialect changes
+	- parameter syntax :paramName
+
+HQL
+	- Hibernate Query Language
+	- "more OO" way to query data compared to SQL
+		- Not SQL dialect dependent
+	- paired with Query<T>
