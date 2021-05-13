@@ -1,0 +1,100 @@
+ORM
+	- Object-Relational Mapping
+		- converting between incompatible types of objects and database tables
+
+JPA
+	- Java Persistence API
+	- Interfaces meants for mapping/managing relational data with Java objects
+	- "concepts" rather than a tool
+		- describing which objects should be persisted and why
+
+Hibernate
+	- ORM framework for Java
+	- Can use annotations or xml files to sync java objects with a database
+	- Benefits
+		- Abstraction of JDBC
+			- uses JDBC "under the hood"
+			- Abstract away SQL queries
+				- Abstracts away SQL dialect (ie: PostgreSQL, OracleSQL...)
+			- reduces boiler plate code
+		- Caching
+			- Can store query information in the server/ can be faster than JDBC
+	- leverages HQL (Hibernate Query Language)
+		- Dialect specific to Hibernate
+		- Can still use native SQL as well
+
+Class/Interfaces in Hibernate:
+	- Configuration (C)
+		- allows you to create session factories through a config file/class
+			- Hibernate.cfg.xml
+	- Session Factory (I)
+		- singleton which generates session objects using a factory design pattern
+	- Session (I)
+		- represents the database connection
+	- Transaction (I)
+		- manages ACID-compliant transactions
+	- Query (I)
+		- used to write complex CRUD operations using HQL
+	- Criteria (I)
+		- programatically writing complex Select statements
+
+hibernate.cfg.xml
+	- config file for hibernate
+		- hibernate configuration root tag
+		- session factory
+			- include db info, driver, etc...
+			- hbm2ddl.auto
+				- CREATE - drops all existing tables and objects with the names provided to your application and then recreate the schema
+				- UPDATE - not delete anything, but adds to a schema if needed
+				- VALIDATE - makes sure that everything is there as expected
+				- NONE - hibernate will not do anything
+				- etc... 
+	- object mapping (either xml or class based)
+		- xml: 
+			- <mapping resource="EntityName.hbm.xml"></mapping> -> defined in hibernate.cfg.xml
+			- create file" EntityName.hbm.xml
+				<hibernate-mapping>
+					<class name="com.revature.models.EntityName" table="entities">
+						<id name="entityId" column="entity_id"><generator class="increment"/></id>
+						<property name="entityProp" column="entity_prop"></property>
+					</class>
+				</hibernate-mapping>
+		- annotation:
+			-  <mapping class="com.revature.models.EntityName"></mapping> -> defined in hibernate.cfg.xml
+			- imported from JPA unless specified otherwise
+				- @Entity
+				- @Table
+				- @Id
+				- @SequenceGenerator
+				- @GeneratedValue
+				- @Column
+				- @Transient
+				- @OneToMany/@ManyToOne/@OneToOne
+				- @JoinTable
+
+Object states in Hibernate
+	- transient
+		- object not associated with db
+			- new Object();
+	- persistent
+		- object associated with a session and matches what is in the database
+			- use some methods to persist the object
+	- detached
+		- object represented in the database but no longer associated with a session
+			- ie: session.close();
+
+DAO/CRUD methods
+	- .get() vs .load()
+		- get retrieves the full object and returns null if the object doesn't exist
+		- load retrieves a proxy and throws an exception if the object doesn't exist
+	- .update() vs .merge() 
+	- .save()
+	- .persist()
+	- .delete()
+	- .saveOrUpdate()
+
+Lazy Loading vs Eager fetching
+	- when fetched eagerly, the entire object is retrieved as soon as the parent object is retrieved
+	- when fetched lazily, a proxy is retrieved until that object is used in the session
+		- proxy
+			- a dummy/empty object aside from a unique identifier (primary key)

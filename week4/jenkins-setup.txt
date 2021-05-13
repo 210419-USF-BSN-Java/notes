@@ -5,9 +5,6 @@ sudo rpm --import http://pkg.jenkins.io/redhat-stable/jenkins.io.key
 sudo yum install -y jenkins
 
 
-sudo groupadd jenkins
-	- Create a new group
-
 sudo usermod -aG jenkins jenkins
 	- add jenkins to the group
 
@@ -24,7 +21,11 @@ Go to:your-ec2-dns.amazonaws.com:8080
 Jenkins' initial password can be retrieved from the EC2 using: 
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
---------- Set up everything -- --------------
+--> login using master password
+--> install recommended plugins
+--> setup admin user
+
+------- Create Job -------
 
 --> new item 
 --> [enter name] 
@@ -33,6 +34,8 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 	- Make sure that your repository is public, might lead to some issues if private
 --> enter repository url
 	- Don't forget .git at the end
+--> Branches to build
+	- main (or whichever branch you'd like)
 --> Select GitHub hook trigger for GITScm polling
 	- Enables webhooks from GitHub
 		- Go to your repo
@@ -41,6 +44,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 		- Add Webhooks
 			- Payload url
 				- [ec2-address]:8080/github-webhook/
+			- make sure to add "/" at the end other Jenkins might be unhappy
 			- Add webhook
 	- Edit your EC2 Security group to allow inbounds from Github (addresses can be found here: api.github.com/meta)
 		- 192.30.252.0/22
@@ -54,3 +58,5 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 			mv target/[your-app].war /var/lib/tomcat/webapps
 		
 Save, run the build, then view the console output notice maven package success.
+
+If set up properly any pushes to the branch defined should trigger a build

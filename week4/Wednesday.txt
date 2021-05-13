@@ -65,3 +65,58 @@ Services
 	- Security Groups
 		- Details what traffic is allowed in and out
 		- Traffic filter
+
+DevOps
+	- is a set of practices that combines software development with IT operations
+	- goal is to produce "high quality code" more efficiently
+	- Often associated with Agile
+	- build, test, deploy, maintain software
+	- DevOps pipelines
+		- is a set of automated processes and tools that allows developers and operations 
+		professionals to collaborate on building and deploying code to a production environment.
+
+CI
+	- Continuous Integration
+	- practice of constantly merging source code, often in a centralized location/repository
+		- meant to prevent large errors from accumulating
+		- make sure that people work with the latest codebase
+CD
+	- Continuous Delivery
+	- Constantly having the application/software is a state to be released "at the push of a button"
+		- Staging environment
+CD
+	- Continuous Deployment
+	- Code is integrated if it passes the tests and is immediately sent to the production environment
+		- live/production environment
+
+Maven (review)
+	- Build automation tool and dependency management tool
+		- dependencies are downloaded locally in the .m2 folder
+	- Lifecycle:
+		- clean - "project cleaning"/ removing old artifacts
+		- default
+			- broken down into "phases"
+				- validate - makes sure that all the necessary information is available
+				- compile - compiling the source code
+				- test - testing the compiled code, unit test (JUnit)
+				- package - takes the compiled code and packages it into a distributable format (jar/war)
+				- verify - integration tests
+				- install - install onto local repository
+				- deploy - deploys to remote repository for other developers to access
+		- site - project documentation
+
+Jenkins
+	- Open-sourced automation server, build automation tool
+		- can automate CI/CD/CD processes
+	- Can leverage plugins in order to achieve additional functionality
+		- Notifications for passing/failing builds
+	- Jenkins job
+		- project managed by jenkins, set of repeatable steps automated by jenkins
+			- ie: pulling latest code, testing code, building artifact, deploying onto tomcat
+			- Build trigger: define when the job would run/executed
+		- Build status
+			- blue - success
+			- yellow - unstable
+			- red - failure
+		- Weather forcast
+			- "how often builds pass/fail"
