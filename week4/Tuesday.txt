@@ -1,0 +1,78 @@
+DOM
+	- Document Object Model
+		- tree like representation of an HTML page using JS objects
+			- nodes refer to the nested HTML elements
+				- ie: p, div, li...
+	- Can traverse/navigate/retrieve elements from the DOM using js methods
+		- document.getElementById("") - returns 1 element
+		- document.getElementsByClassName("")
+		- document.getElementsByTagName("")
+		- ... 
+	- Can programatically manipulate elements using their properties
+		- .attributes
+		- .hasAttribute
+		- .setAttribute
+		- .innerHTML
+	- Can create and append elements
+		- .createElement("") - creates an html element
+		- .appendElement("") - attaching element to appropriate location in the DOM
+
+Event listeners
+	- listeners that wait for certain "events" to happen and then execute some functionality
+		- onclick
+		- onmousehover
+		- onkeydown
+	- document.getElementById("id").onclick = funcName; 
+		- JS passes in an event object as a param
+		- by default, event propagation is bubbling.
+	- document.getElementBy("id").addEventListener(event, callback function, boolean);
+
+Event Propagation
+	- how event listeners handle events for elements that have parent/children also with event listeners
+	- two types
+		- bubbling: default, the event "bubbles" up from innermost child element to the outermost parent
+		- capturing: the event starts from the outermost parent and moves down to the innermost child element
+	- The type of event propagation can be specified as a parameter
+		- element.addEventListener(event, callback function, boolean(bubbling: false(default), capturing: true));
+	- Event propagation can be stopped
+		- ie: using event.stopPropagation();
+
+AJAX
+	- Asynchronous JS and XML
+	- library that allows to send HTTP requests and receive HTTP responses, also allows for partial page reload
+		- allows to make asynchronous calls, meaning that the rest of the code can still execute while waiting for the HTTP call
+	- 4 mains steps in making an AJAX call
+		- creating an XMLHttpRequest object
+		- setting a callback function to the readystatechange event of that object
+		- open/parameterize the request object (set the type/method, URL...)
+		- sending the request 
+	- onreadystate change callback function
+		- callback function
+			- function being passed into other functions as a parameter
+		- check that the ready state is 4 to make sure that a response was received
+		- check that our request was successful (HTTP status code in 200s)
+		- handle information retrieved
+	- ready states
+		- 0: Unsent -- Just create xhr object
+		- 1: Opened -- .open has been called
+		- 2: Headers received -- request has been sent, retrieving headers from response
+		- 3: Loading -- 
+		- 4: Done -- Response has been received
+
+Fetch API
+	- an API in JS that allows to send HTTP requests and receive HTTP responses like AJAX
+	- introduced in ES6
+	- fetch function returns a response as a promise
+		- fetch(URI)  -- Get request
+		- fetch(URI, {method: 'METHOD', body: JSON.stringify(obj)}); / adding additional information
+	- can be used with async and await
+		- introduced in ES7
+		- async is used on a function to specify that it will return a promise or is making an asynchronous call
+		- await can be used in an async function when making async calls
+		- async function sendReq(){
+			// specify behavior
+			let response = await fetch(uri);
+			if(response.status <= 200 ...){
+				let obj = awwaot response.json();
+			} 
+		} 
