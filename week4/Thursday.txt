@@ -1,0 +1,154 @@
+ORM
+	- Object-Relational Mapping
+		- converting between incompatible types of objects and database tables
+
+JPA
+	- Java Persistence API
+	- Interfaces meants for mapping/managing relational data with Java objects
+	- "concepts" rather than a tool
+		- describing which objects should be persisted and why
+
+Hibernate
+	- ORM framework for Java
+	- Can use annotations or xml files to sync java objects with a database
+	- Benefits
+		- Abstraction of JDBC
+			- uses JDBC "under the hood"
+			- Abstract away SQL queries
+				- Abstracts away SQL dialect (ie: PostgreSQL, OracleSQL...)
+			- reduces boiler plate code
+		- Caching
+			- Can store query information in the server/ can be faster than JDBC
+	- leverages HQL (Hibernate Query Language)
+		- Dialect specific to Hibernate
+		- Can still use native SQL as well
+
+Class/Interfaces in Hibernate:
+	- Configuration (C)
+		- allows you to create session factories through a config file/class
+			- Hibernate.cfg.xml
+	- Session Factory (I)
+		- singleton which generates session objects using a factory design pattern
+	- Session (I)
+		- represents the database connection
+	- Transaction (I)
+		- manages ACID-compliant transactions
+		- from session object
+			- .beginTransaction()
+				- .commit()
+				- .rollback()
+	- Query (I)
+		- used to write complex CRUD operations using HQL
+	- Criteria (I)
+		- programatically writing complex Select statements
+
+hibernate.cfg.xml
+	- config file for hibernate
+		- hibernate configuration root tag
+		- session factory
+			- include db info, driver, etc...
+			- hbm2ddl.auto
+				- CREATE - drops all existing tables and objects with the names provided to your application and then recreate the schema
+				- UPDATE - not delete anything, but adds to a schema if needed
+				- VALIDATE - makes sure that everything is there as expected
+				- NONE - hibernate will not do anything
+				- etc... 
+	- object mapping (either xml or class based)
+		- xml: 
+			- <mapping resource="EntityName.hbm.xml"></mapping> -> defined in hibernate.cfg.xml
+			- create file" EntityName.hbm.xml
+				<hibernate-mapping>
+					<class name="com.revature.models.EntityName" table="entities">
+						<id name="entityId" column="entity_id"><generator class="increment"/></id>
+						<property name="entityProp" column="entity_prop"></property>
+					</class>
+				</hibernate-mapping>
+		- annotation:
+			-  <mapping class="com.revature.models.EntityName"></mapping> -> defined in hibernate.cfg.xml
+			- imported from JPA unless specified otherwise
+				- @Entity: must go at the top of a class for Hibernate to map it as entity
+				- @Table: goes at the top of a class that is mapped to a table in the database
+					optional @Table(name="entity_name") if name in DB is different than the object name
+			- @Id: goes above the primary key field
+			- @SequenceGenerator(name="seqGen", sequenceName="entity_seq", allocationSize=1)
+				name is an arbitrary name for the sequence. it is only referenced in the GeneratedValue annotation
+				sequenceName is the name of the sequence in the database
+				allocationSize is how much the sequence increments when you create an object
+			- @GeneratedValue(generator="seqGen", strategy=GenerationType.SEQUENCE)
+				generator is the name given in the @SequenceGenerator annotation
+			- @GeneratedValue(strategy=GenerationType.IDENTITY)
+				strategy is how the incrementation occurs 
+			- @Column: implicitly above all fields in classes annotated with @Table
+				@Column(name="column_name")
+			- @Transient: over a field that should not be persisted to the database
+			- @OneToMany/@ManyToOne/@OneToOne: over a field that is an object/collection of objects from another table
+				which one to use depends on what the relationship is between the objects.
+					- can include fetch and cascade properties
+				@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+		- @JoinColumn(name="column_name"): goes with the above multiplicity relationship annotations.
+			specifies which column (foreign key) in the database connects these objects.
+			use the JavaDocs to clarify which table the column should be coming from.
+		- @ManyToMany: over a field that is a collection of objects from another table.
+		- @JoinTable(name="table_name", 
+				joinColumn=@JoinColumn(name="column_name"),
+				inverseJoinColumn=@JoinColumn(name="column_name"))
+			goes with multiplicity annotations that use a join table/multiplicity table in the DB
+			joinColumn references the foreign key to the "owner" of the relationship
+			inverseJoinColumn references foreing key to what is "owned"
+
+Object states in Hibernate
+	- transient
+		- object not associated with db
+			- new Object();
+	- persistent
+		- object associated with a session and matches what is in the database
+			- use some methods to persist the object
+	- detached
+		- object represented in the database but no longer associated with a session
+			- ie: session.close();
+
+DAO/CRUD methods
+	- .get() vs .load()
+		- get: 
+			- eagerly fetches object
+			- returns null when getting an id not in db
+		- load:
+			- lazily fetches an object as proxy
+			- throw an exception if the object doesn't exist
+	- .update() vs .merge()
+		- update:
+			- void return
+			- if a persistent object in session with same id, throws an exception
+			- if try to update an object with no id in db, throws an exception
+		- merge:
+			- returns merged object
+			- if there's a persistent object with same id in session, will merge with with persistent object
+	- .save()
+		- returns serializable id, (primary key)
+		- can make detached and transient objects persistent
+	- .persist()
+		- void return
+		- throws exception if making detached object persistent
+	- .delete()
+		removes the object from the DB
+	- .saveOrUpdate()
+		will save the object if it is not in the DB (no matching ID), otherwise will update
+
+
+Lazy Loading vs Eager fetching
+	- when fetched eagerly, the entire object is retrieved as soon as the parent object is retrieved
+	- when fetched lazily, a proxy is retrieved until that object is used in the session
+		- proxy
+			- a dummy/empty object aside from a unique identifier (primary key)
+
+Native Queries
+	- Just writing plain SQL, NativeQuery<T> 
+	- not best practice(mixing languages) 
+		- might need to rewrite if SQL dialect changes
+	- parameter syntax :paramName
+
+HQL
+	- Hibernate Query Language
+	- "more OO" way to query data compared to SQL
+		- Not SQL dialect dependent
+	- paired with Query<T>
