@@ -47,13 +47,31 @@ public class DepartmentHibernate implements DepartmentDao{
 			d = tq.getSingleResult();
 		}
 		return d;
+		
+//		Department d;
+//		try(Session s = HibernateUtil.getSessionFactory().openSession()){
+//			CriteriaBuilder cb = s.getCriteriaBuilder();
+//			CriteriaQuery<Department> criteria = cb.createQuery(Department.class);
+//			Root<Department> root = criteria.from(Department.class);
+//			
+//			Predicate predicateForId = cb.equal(root.get("id"), id);
+//			Predicate predicateForName = cb.equal(root.get("name"), "My Other Department");
+//			Predicate predicateForIdAndName = cb.and(predicateForId, predicateForName);
+//			
+//			criteria.select(root).where(predicateForIdAndName);
+//			
+//			d = s.createQuery(criteria).getSingleResult();
+//		}
+//		return d;
+		
 	}
 
 	@Override
 	public List<Department> getAll() {
 		Session s = HibernateUtil.getSessionFactory().openSession();
 		// use class name not name of table in db
-		List<Department> departments = s.createQuery("FROM Department").list();
+//		List<Department> departments = s.createQuery("FROM Department").list();
+		List<Department> departments = s.createNamedQuery("getAllNq", Department.class).getResultList();
 		s.close();
 		return departments;
 	}
