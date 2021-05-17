@@ -1,8 +1,8 @@
 package com.revature.daos;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 import com.revature.models.Department;
@@ -20,11 +20,21 @@ public class DepartmentHibernate implements DepartmentDao{
 
 	@Override
 	public Department getById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Department d = null;
+		
+		try(Session s = HibernateUtil.getSessionFactory().openSession()) {
+			d = s.find(Department.class, id);
+			
+		}catch(HibernateException e) {
+			
+		}
+		
+		return d;
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<Department> getAll() {
 		Session s = HibernateUtil.getSessionFactory().openSession();
 		// use class name not name of table in db
@@ -34,15 +44,40 @@ public class DepartmentHibernate implements DepartmentDao{
 	}
 
 	@Override
-	public Integer update(Department d) {
-		// TODO Auto-generated method stub
-		return null;
+	public void update(Department d) {
+		Session s = HibernateUtil.getSessionFactory().openSession();
+		
+		try{
+			s.beginTransaction();
+			
+			d.setMonthlyBudget(5000.0);
+			
+			s.update("Department", d);	
+			
+			s.getTransaction().commit();
+			
+			
+		}catch(HibernateException e) {
+			System.out.println("Tried to update");
+			
+		}finally {
+			s.close();
+		}
+		
 	}
 
 	@Override
-	public Integer delete(Department d) {
-		// TODO Auto-generated method stub
-		return null;
+	public void delete(Department d) {
+		try(Session s = HibernateUtil.getSessionFactory().openSession()){
+			s.beginTransaction();
+			
+			s.delete(d);	
+			
+			s.getTransaction().commit();
+			
+		}catch(HibernateException e) {
+			
+		}
 	}
 
 }

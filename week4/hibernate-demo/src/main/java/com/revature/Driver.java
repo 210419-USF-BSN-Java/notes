@@ -9,17 +9,29 @@ public class Driver {
 	static DepartmentDao dd = new DepartmentHibernate();
 	
 	public static void main(String[] args) {
-		Department d = new Department();
-		d.setName("My Other Department");
-		d.setMonthlyBudget(7000.00);
+//		Department d = new Department();
+//		d.setName("My Other Department");
+//		d.setMonthlyBudget(7000.00);
 //		
-//		Session s = HibernateUtil.getSessionFactory().openSession();
-//		
-//		s.save(d);
-//		
-//		s.close();
+//		dd.add(d);
+//		System.out.println(dd.getAll());
 		
-		dd.add(d);
-		System.out.println(dd.getAll());
+		Department d = dd.getById(1);
+		
+		System.out.println(d);
+		
+//		dd.update(d);
+//		
+//		d = dd.getById(1);
+//		
+//		System.out.println(d);
+		
+		
+		dd.delete(d);
+		
+		d = dd.getById(1);
+		
+		System.out.println(d);
+		
 	}
 }
