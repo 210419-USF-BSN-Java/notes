@@ -1,7 +1,17 @@
 # Training Calendar
 
+05/19
+- 9:00 Central - Portfolio Orientation
+
+05/18
+- 10:30 Central - QC (JS, AWS, DevOps, Hibernate)
+
+---
+
 05/10
 - 10:30 Central - QC (SQL, HTML/CSS, Servlets)
+
+---
 
 05/05 
 - 9:30AM Central - P0 presentations
