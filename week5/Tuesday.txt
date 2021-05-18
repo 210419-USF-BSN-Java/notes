@@ -1,0 +1,134 @@
+Software Development Life Cycle (SDLC)
+	- Process for planning, creating, testing, and displaying an information system
+	- General steps/phases
+		- Requirement Phase
+			- Existing system is evaluated and deficiencies are identified
+			- Business Analysts(BAs):
+				- Meeting with clients, figure out what they want (requirements) and relay that with the team
+		- Analysis Phase
+			- Requirements are defined
+				- Particularly the deficiencies in the existing system and a proposal is made
+				- BA/ Senior
+		- Design Phase
+			- Proposed system is design, product features are planned out
+			- No coding
+		- Development Phase
+			- Software is being build
+			- Code for the product is written
+		- Testing Phase
+			- Software is tested, to ensure desired functionality
+			- Testing team
+		- Deployment and Maintenance Phase(s)
+			- Product is delivered/deployed to the customer
+			- Maintenance is kept up
+
+
+Waterfall
+	- Traditional model, linear/sequential life cycle model
+	- Each phase must be completed before the next phase begins/no overlapping
+	- Inflexible/no going back up
+
+	Advantages
+		- Requirements are very well documented, clear and fixed
+		- Product definition is stable
+		- Best for short projects	
+
+	Disadvantages
+		- Cannot accomodate well for changing requirements
+			- Low flexibility
+		- Poor model for long-ongoing project
+		- No working software until later in the lifecycle
+
+Agile
+	- Approach to SDLC based on iterative and incremental development with focus on customer satisfaction by rapid delivery of software product
+	- Breaks the product into small incremental builds, builds provided in iterations, each iteration involves cross functional teams working simultaneously
+	- a philosophy/mindset: 
+		- https://agilemanifesto.org/
+		- Individual and interactions over processes and tools
+		- Working software over comprehensive documentation
+		- Customer collaboration over contract negotiation
+		- Responding to change over following a plan
+
+
+Terminology
+	- User story
+		- individual feature/requirement for a project
+	- Epic
+		- group of related features that is broken down into user stories
+	- Story point
+		- level of difficulty assigned to a user story - can be based on perceived time to be spent on it
+	- Sprint
+		- Specified timeline for an iteration (2 weeks - month)
+
+Scrum 
+	- Agile framework, implementation of Agile
+	- Artifacts(documents)
+		- Product backlog
+			- List of everything that is known to be needed in the product/list of requirements/features
+			- Managed by the product owner
+		- Sprint backlog
+			- Set of product backlog items selected for a sprint
+	- Scrum Team (5 to 9 members)
+		- Product Owner
+			- Reponsible for the product resulting from the dev team
+			- Manages the Product backlog
+		- Development Team
+			- Devs/QA
+		- Scrum Master
+			- Facilitator to the scrum development team
+			- Clarifies questions, organizes activities
+	- Ceremonies(meetings)
+		- Sprint Planning
+			- Meeting to plan the work to be performed during the Sprint
+			- Collaboration of the whole Scrum team
+				- Assigning features/storypointing
+			- ~ 2hours per week of the sprint
+		- Daily Scrum(Daily Standups)
+			- Daily meeting for the Dev team
+			- Purpose is to check on the progress
+				- "What did you do yesterday?"
+				- "What are you doing today?"
+				- "Do you have any blockers?"
+					- work relying on someone else's
+			- ~15 minutes
+		- Sprint Review
+			- Demo of product resulting from the sprint, "working software"
+			- Scrum team and stakeholders collaborate/inspect what was done and update the product backlog as needed
+		- Sprint Retrospective
+			- Scrum team review how the sprint wen, create a plan for improvement for the next sprint
+	- Burndown chart
+		- Graph displaying progress over the course of a sprint 
+		- Story points remaining vs time
+	- Sprint Velocity
+
+	Set up:
+		- Scoop:
+			- open a terminal and type:
+				scoop install nodejs
+			- check by using 
+				node --version
+		- No Scoop:
+			- Follow directions to install nodejs:
+				- https://angular.io/guide/setup-local
+
+	- Should have also access to npm
+	- Check by using
+		- npm --version
+
+Node.js
+	- open-source, cross-platform JavaScript runtime environment
+		- executes JS code outside of a browser
+	- presents the opporunity to run JS for every tier of a web application
+		- client tier
+		- application/Business tier
+		- persistence layer
+
+Node package Manager (npm)
+	- included with the installation of Node.js
+	- one of the world's largest software registry
+		- free to use
+	- 3 main components
+		- website - discover packages...
+		- CLI tool (npm) - run from a terminal
+		- registry - database of JS software available to download
+	
