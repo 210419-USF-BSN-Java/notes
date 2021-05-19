@@ -1,0 +1,14 @@
+<h3>Databinding </h3>
+
+<button class="btn btn-light" (click)='increment(2)'>Increment by 2</button>
+<button class="btn btn-danger" (click)='increment(5)'>Increment by 5</button>
+
+<!-- <p [style]="'color:' + countColor">Count: {{count}}</p> -->
+
+<p [class]="countColor">Count: {{count}}</p>
+
+<h4>Name</h4>
+<p>{{myName}}</p>
+
+<label>Enter Name</label>
+<input [(ngModel)]='myName'>

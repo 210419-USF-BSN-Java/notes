@@ -96,3 +96,67 @@ Angular
 		- tsconfig.json
 			- Typescript settings
 				- ie: transpiling target..
+	- Module
+		- group of related components
+		- At least 1 mondule
+			- by default AppModule which is the root module
+				- convention, can be renamed if desired
+		- @NgModule decorator
+			- defines 4 properties
+				- declarations - defines associated components
+				- imports - defines additional modules
+				- providers - defines services associated with the modules
+				- bootstrap - defines root component
+	- Decorators
+		- "fancy functions" that provide metadata as a parameter
+		- Types
+			- Class, method, property, parameter
+		- Each "element" in angular has their own decorator
+			- @Component
+			- @NgModule
+			- @Injectable - services
+			- @Pipe
+	- Components
+		- Building block of Angular, used to design webpages
+			- web page is built by combining components together
+		- When generated, a component is comprised of 4 files
+			- html - html for the component / template for a component
+			- css - css for the component
+			- ts - Typescript/functionality for the component
+			- spec.ts - unit tests for the component
+		- @Component decorator
+			- selector
+
+	- DOM manipulation
+		- Inject values
+		- Eventlisteners
+		- Create/Remove elements
+		- Change attributes
+		- Retrieving values
+
+	- Databinding
+		- way to communication between the HTML/DOM and the "typescript"
+		- One way binding
+			- String interpolation
+				- displays data into the view
+				- from ts -> html
+				- name:string = 'Kevin'; in ts file
+				- <p> {{ name }} </p> in html 
+			- eventbinding
+				- assign functionality to an event
+				- from HTML -> ts
+				- function doSomething() { ... }; in ts file
+				- <button (event)='doSomething'>doSomething</button>
+			- attribute/property
+				- goes from TS to HTML
+				- Assigns a value to an attribute/property of an html document
+				- value:string = 'value';
+				- <p [attribute/property]="value"></p> - in html
+
+		- Two way binding
+			- both ways, from HTML to TS and from TS to HTML
+			- import FormModule in app.module.ts
+			- name:string = 'Kevin'; in ts file
+			- <input [(ngModel)]='name> in html
+			- Also referred to as banana in a box
+	- 
