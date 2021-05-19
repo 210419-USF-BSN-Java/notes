@@ -1,0 +1,31 @@
+Hibernate (continued)
+
+Criteria API
+	- Java-based, used to query data programmatically
+		- DQL
+		- keeps languages separated
+		- OOP "manner"
+
+Named Queries
+	- Defining a query to be used in the model
+	- Used when data might not be separated in a different layer
+		- easy to find (in the model)
+	
+Caching
+	- "Storing for quicker access"
+	- Stores the result of a query from the db to save time
+		- "buffer memory" that lies between the application and the database
+	- Types of caching in Hibernate
+		- L1 - Level 1
+			- Session level
+			- Automatic and mandatory
+			- if multiple updates are made onto an object, 
+				Hibernate delayes the actual db update as long as possible to reduce the number of statements used
+			- Closing the session causes the information in L1 caching to be lost
+		- L2 - Level 2
+			- Session factory level
+				- lasts for the entire lifetime of your application
+			- Optional
+			- Need to leverage 3rd cache
+				- ie: ehcache
+			- to configure, in the hibernate.cfg.xml in the session-factory tag
