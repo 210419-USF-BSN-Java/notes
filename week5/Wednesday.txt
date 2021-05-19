@@ -1,0 +1,98 @@
+npm (continued)
+	- npm init
+		- initializes a new js project
+			- generates package.json file
+				- like pom.xml
+				- lists dependencies used
+				- project information
+					- ie: entry point...
+
+	- node_modules
+		- when npm install is ran, downloads required dependencies in that folder
+		- good practice to add node_modules into a .gitignore
+			- otherwise all of the dependencies are pushed to Github
+		- when pulling a project can retrieve the node_modules folder by running
+			npm install
+		- managed by npm
+		- can uninstall dependency by running npm uninstall
+	- npm install 
+		-g flag to make "global", makes the dependency available outside of the project
+
+	- package-lock.json
+		- specifies the "exact" version of the dependencies used so that the project is 100% reproducible
+
+
+Typescript
+	- Made by Microsoft
+	- is a superset of JS
+		- all JS is valid TS
+			- Anything you can use in JS you can use in TS
+	- features
+		- static typing
+		- compile/transpile time check
+		- interfaces
+		- access modifiers
+	- Advantages
+		- more Object Oriented
+	- Disadvantages
+		- can't actually run typescript in your browser
+	- Has to be transpiled to JS before can be executed
+		- Transpilation
+			- from typescript to js
+	- npm install -g typescript
+	- types
+		- JavaScript types
+		- TS types (specific)
+			- any
+			- void
+			- never
+			- enums
+			- tuple
+	- Access modifiers
+		- public (the default), private, protected
+	- non-access modifiers
+		- readonly
+	- Interfaces
+		- we're going to use those for type checking
+	- tsc
+		- command use to transpile .ts into .js
+		- by default uses ES5 (?)
+		- specify target using --target flag
+			ie: tsc --target es6 something.ts
+
+Angular
+	- is a front-end framework
+	- used to make dynamic, single page applications
+		- Single Page Application (SPA)
+			- Design pattern
+			- loading all of the static resources at once
+				- injecting/removing views and functionality in a webpage rather than requesting a whole new resource from the server
+					- components
+						- basic building block of Angular
+		- Dependency Injection
+			- Design pattern
+			- Relying on a framework to provide the instances of our "dependencies" rather than creating it ourselves
+			- Abstracts away implementation details
+	- Angular.js vs Angular
+		- Angular.js 
+			- written in Javascript
+		- Angular
+			- Any version after Angular.js (2+)
+			- use ts
+	- Powerful CLI(command line interface)
+		- ng new [app-name]
+		- ng generate [service/component/module...] [name]
+			- can shorten to ng g [s/c/...] [name]
+		- ng serve
+			- can add --open (opens automatically)
+			- "serves" the project locally, by default onto port 4200
+		- ng test
+			- runs protractor & jasmine tests (spec.ts)
+		- ng build
+			- builds/packages the application as an artifact to be deployed
+	- Project setup
+		- angular.json
+			- Angular settings
+		- tsconfig.json
+			- Typescript settings
+				- ie: transpiling target..
