@@ -64,4 +64,6 @@ Angular (continued)
    					     this.pokemon = response;
     				  }
    				 );
-			
+	- Event Emitters
+		- emit custom events synchonously or asynchronously
+		- can be used to send data from parent to child compoenent

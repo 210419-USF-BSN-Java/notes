@@ -11,6 +11,7 @@ import { MyPipePipe } from './pipes/my-pipe.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { PokehomeComponent } from './components/pokehome/pokehome.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PokemonComponent } from './components/pokemon/pokemon.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     DatabindingComponent,
     SdirectiveComponent,
     MyPipePipe,
-    PokehomeComponent
+    PokehomeComponent,
+    PokemonComponent
   ],
   imports: [
     BrowserModule,

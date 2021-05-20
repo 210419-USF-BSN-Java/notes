@@ -1,0 +1,13 @@
+<ng-container *ngIf='pokemon; else noPoke'>
+    <div>
+        <h2>{{pokemon.id}}: {{pokemon.name}}</h2>
+        <div>
+            <ng-container *ngFor='let sprite of pokemon.sprites | keyvalue'>
+                <img *ngIf="sprite.value && sprite.key !== 'other' && sprite.key !== 'versions'" [src] = "sprite.value" />
+            </ng-container>
+        </div>
+    </div>
+    </ng-container>
+    <ng-template #noPoke>
+        No pokemon available.
+    </ng-template>
