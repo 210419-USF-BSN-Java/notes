@@ -31,3 +31,37 @@ Angular (continued)
 		- <router-outlet></router-outlet>
 			- displays component mapped to the path
 		- Do not use the href attribute or it will reload the page.
+
+	- models
+		- classes/interfaces for your data/objects - to be received from backend
+			- we'll be using interfaces since we're not actually going to instantiate the object
+		- Not needed/ helps with ensuring that JSON is mapped correctly
+	- services
+		- Angular "entities" used for any code/logic that could be reusable
+		- Services are injected into other classes/ via their constructor
+			- Angular leverages dependency injection
+		- @Injectable - decorator
+		- types of injectors
+			- root: service is a singleton/one per application
+			- module: service is reused within a module
+			- component: per component 
+	- Http calls
+		- Import HttpClientModule in the app.module
+		- HttpClient to make Http requests
+		- Returns observables
+			- async http call returning a stream 
+			- follows pub/sub design pattern
+				- any entity "subscribed" to the observable can retrieve that information
+				- Lazy, the call is only made if the observable is subscribed to
+		-     return this.http.get('https:[...]).pipe(
+     				 map(response => response as [...])
+    				); 
+			- pipe - allows us to return an Observable
+			- map - allows to "map" the JSON object into an object/interface
+		- Once an observable is retrieved from a service, has to "subscribe
+			- this.pokeService.getPokemonById(value).subscribe(
+    				  response => {
+   					     this.pokemon = response;
+    				  }
+   				 );
+			

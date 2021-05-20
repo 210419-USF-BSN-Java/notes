@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { SdirectiveComponent } from './components/sdirective/sdirective.component';
 import { MyPipePipe } from './pipes/my-pipe.pipe';
 import { AppRoutingModule } from './app-routing.module';
+import { PokehomeComponent } from './components/pokehome/pokehome.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,12 +20,14 @@ import { AppRoutingModule } from './app-routing.module';
     MycompComponent,
     DatabindingComponent,
     SdirectiveComponent,
-    MyPipePipe
+    MyPipePipe,
+    PokehomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

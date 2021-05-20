@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MycompComponent } from './components/mycomp/mycomp.component';
 import { DatabindingComponent } from './components/databinding/databinding.component';
 import { SdirectiveComponent } from './components/sdirective/sdirective.component';
+import { PokehomeComponent } from './components/pokehome/pokehome.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,9 @@ const routes: Routes = [
   },{
     path:'sdirective',
     component: SdirectiveComponent
+  },{
+    path:'pokehome',
+    component: PokehomeComponent
   }
 ] 
 
