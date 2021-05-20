@@ -1,0 +1,14 @@
+<h3>Structural directives</h3>
+
+<button (click)='changeBoolean()'>Click me</button>
+<p *ngIf='veryImportantBoolean'>I am displayed!</p>
+<!-- <p *ngIf='!veryImportantBoolean'>False</p> -->
+
+<ol>
+    <li *ngFor='let name of people'>
+        {{name | myPipe}}
+    </li>
+</ol>
+
+<p [ngStyle]='styles' >Attribute directive</p>
+

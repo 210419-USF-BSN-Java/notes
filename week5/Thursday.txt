@@ -1,0 +1,33 @@
+Angular (continued)
+	- Directives
+		- Component
+			- HTML tag used to reference to a component
+				<app-componentName></app-componentName>
+		- Structural
+			- directive that affects the DOM
+				- creating elements, displaying elements...
+			- *ngIf, *ngFor...
+		- Attribute
+			- affect the looks of the elements
+				- ngStyle, ngClass
+
+	- Pipes
+		- Used to transform/display data in the view
+			- don't actually change the data itself
+			- uppercase/lowercase
+			- time and dates formating
+			- currency
+		- Usually used in conjunction with String interpolation
+			- {{value | pipe}}
+		- Custom pipes
+			- ng g p [pipe-name]
+				- implements PipeTransform
+				- Transform()
+					- how data is transformed
+	- routing
+		- allows us to swap components dynamically based on the URL path
+		- app-routing.module.ts
+			- contains defined routes
+		- <router-outlet></router-outlet>
+			- displays component mapped to the path
+		- Do not use the href attribute or it will reload the page.
