@@ -1,5 +1,10 @@
 # Training Calendar
 
+05/24
+- 10:30 Central - QC (SDLC, Angular)
+
+---
+
 05/19
 - 9:00 Central - Portfolio Orientation
 
