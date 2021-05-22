@@ -1,0 +1,30 @@
+Webpack
+	- resource bundler which prepares the application during development/builds
+		- bundle is basically a file that incorporate files that belong together
+			- served to the client in one single file request
+			- includes JS/CSS/HTML...
+
+Jasmine
+	- a BDD(Behavior-driven development) unit testing framework for JS
+		- Built into Angular/ no set up is required
+		- BDD
+			- Subset of TDD
+				- Test cases are written in a way to specify the desired behavior
+		- described in highlevel language - Almost like English
+	- Karma
+		- WebServer/Testrunner
+			- configured in the Karma.conf.js
+				- by default it runs on port:9876
+	- Main keywords/setup
+		- describe('Name/description of a test suite', () => {
+			it(`should do something`, () =>{
+				expect(actualValue).toBe(expectedValue);
+				expect(actualValue).toBeTruthy();
+				expect(actualValue).toEqual();
+				expect(actualValue).not.toBe(notExpectedValue);
+			}
+		}
+		- expect is kind of like the equivalent of assert in JUnit
+		- Can add beforeEach, BeforeAll, AfterEach...
+	- docs: https://jasmine.github.io/api/3.7/matchers.html
+	- jasmine files are spec.ts, spec.js

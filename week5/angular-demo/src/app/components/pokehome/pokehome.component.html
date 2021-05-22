@@ -1,0 +1,6 @@
+<form>
+    <input #pokemonId>
+    <button (click)='getPokemon(pokemonId.value)' >Get Pokemon!</button>
+</form>
+
+<app-pokemon [pokemon]='pokemon'></app-pokemon>
