@@ -1,0 +1,67 @@
+Project: Trivia App
+Team lead - Raphael
+Git Flow - Nolan
+
+Description:
+It is a trivia game that has multiple categories, users can select question sets and will be scored on how well they perform.
+Their scores will be displayed on a leaderboard(optional).
+
+
+Activity diagram
+User    ->log in			
+	|apply for an account
+					
+Player -> choose question set -> answer questions -> view score -> submit score to leaderboard
+	|			|-flag a question for review
+	|-view and change profile
+					
+Admin  -> add question sets and individual questions -> edit questions and question sets
+	|-remove people from leaderboard
+	|-ban, suspend, or delete accounts
+
+-API: https://opentdb.com/
+
+legend:	
+-:core user story
+*: stretch goal
+
+User stories
+-User can log in (player/admin)
+-User can apply for an account
+-User can view their profile
+-User can edit their profile
+*User can see a sample question set
+
+
+Players
+-Player can choose a question set based on difficulty and topic
+-Player can answer questions
+-Player can see their score after completing the question set
+-Player can submit their score to the leaderboard after completion or return to the main menu and do not submit
+-Player can view the leaderboard
+-Player can flag individual questions when doing a set for review
+*Player can report individual questions, other players, or question sets for problems
+
+Question Set (system)
+*3 tries per question sets
+-Scores can be submitted to the leaderboard on each try (unlimited tries)
+-Each question set has a set amount of questions
+*Each topic has a pool of questions
+*Each set is about 20 questions and pulls from the pool
+*Randomize questions in a set
+
+Admin
+-Perform CRUD operations on question sets or individual questions.
+-Approve/Deny account creation applications
+-Ban, suspend, or delete Player accounts
+*Grant privileges to Players
+*Remove leaderboard scores
+
+total core stories: 15
+
+
+Roles:
+Raphael: Frontend
+Ryan: Backend, Stand ups
+James: Backend
+Nolan: Middle, AWS, EC2, Jenkins
