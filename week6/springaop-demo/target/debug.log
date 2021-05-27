@@ -1,0 +1,1 @@
+10:50:42.110 [main] ERROR com.revature.aspects.LoggingAspect - void com.revature.models.User.doWork() threw class com.revature.exceptions.RobbieException

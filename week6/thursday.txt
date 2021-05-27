@@ -1,0 +1,40 @@
+Spring AOP
+	- Spring module
+	- Aspect Oriented Programming
+		- Aspect is a unit of modularity
+			- ie: Objects in OOP
+			- Used to handle Cross Cutting Concerns(CCC)
+				- Any logic not directly related to the application/business logic
+				- Global concerns to be kept in mind
+					- ie: 
+						- logging
+						- validation
+						- security
+				- Can be handled universally rather than within the business logic
+					- separation of concern
+		- AspectJ
+			- Annotation based framework to work with aspects
+			- Annotation based
+			- add: <aop:aspectj-autoproxy/> in xml config file
+	- Terminology
+		- aspect
+			- an entity that addresses a Cross Cutting Concern via an advice
+			- typically a class annotated with @Aspect
+		- advice
+			- an entity that actually modifies the code
+			- typically a method within the aspect class
+		- joinpoint
+			- any code that can be modified by an advice/ can be advised
+			- typically, in the context of Spring, is any method on a Spring bean
+		- pointcut
+			- expression that targets specific joinpoints
+			- @Pointcut([expression to target a joinpoint])
+				- @Pointcut("execution(returnType package...methodname parameters))")
+	- AOP (in general) leverages AOP proxies to implement the advices in the methods' execution
+		- can think as having the advices injected where applicable
+	- Types of advices
+		- @Before: before the advised method executes
+		- @After: after the advised method executes
+		- @AfterReturning: after the advised method executes successfully (no exception/error)
+		- @AfterThrowing: after the advised method throws an exception/error
+		- @Around: "most powerful" advice, happens before the advised method, can tell when the method should be executed, if it should be executed, can continue after the method
