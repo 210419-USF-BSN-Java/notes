@@ -20,7 +20,7 @@ public class RequestHelper {
 		// determine if this is a record based request
 		String path = request.getServletPath();
 		if(path.startsWith("/api/")) {
-			// we will authenticate the token here
+			// we will authenticate the token heres
 			if(!authDelegate.isAuthorized(request)) {
 				response.sendError(401);
 				return;
