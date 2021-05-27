@@ -1,0 +1,102 @@
+Spring 
+	- Framework which incorporates Inversion of Control(IoC) and Dependency Injection(DI) in order to accelerate software development
+		- In general, "Spring" refers to the Spring framework/Ecosystem
+	- Spring modules
+		- different "features" within the Spring Framework, usually address a particular concern of your application
+		- SpringCore (IoC container)
+		- SpringBeans
+		- SpringContext
+		- SpringWebMVC
+		- SpringAOP
+		- SpringORM
+	- Spring projects
+		- address different industry concerns (ie: Security, MSA...)
+		- SpringBoot
+		- SpringData/JPA
+		- SpringCloud
+		- SpringSecurity
+	- IoC Container
+		- Spring container
+			- ApplicationContext
+		- reponsible for intantiating our dependencies and providing them to our code
+	- Spring bean
+		- Any Java entity managed by the IoC container
+		- They are provided their depencies by Spring
+	- Dependency Injection (DP)
+		- "dependency"
+			- object/entity needed for our code to function properly
+		- "injection"
+			- Framework provides instances of these object for us
+	- Decouples implementation from configuration
+	- Pls read Spring Docs, they cool.
+
+IoC container (DP)
+	- "inversion of control" - means that Spring manages the lifecycle of your bean
+	- once the beans and the dependencies are specified, the IoC container manages them
+		- creates the bean (don't have to use the "new" keyword)
+		- handles Dependency Injection (if needed in another bean)
+	- represented by the BeanFactory(BF) or the ApplicationContext(AC)
+		- use the factory design pattern in order to create beans
+		- BF is the older version of the IoC container, AC is the newer and "better" one
+			- BF has lazy instantiation, AC has eager instantiation
+	- Some important AC implementations:
+		- ClassPathXmlApplicationContext
+		- AnnotationConfigApplicationContext
+		- WebApplicationContext
+
+Dependency Injection (DP)
+	- IoC container finds the appropriate bean for that dependency and injects it
+	- 4 different types of DI, Spring only supports 3:
+		- Constructor Injection - Dependency is placed/injected by calling an overloaded constructor
+			- used by Angular
+		- Setter Injection - dependency is placed/injected using the setter method
+			- this can be used by Spring
+		- Field Injection - dependency is placd/inject directly in the field using the Reflection API
+			- this can be used by Spring
+		- Interface injection - - Not supported by Spring
+	
+Bean Definition in xml:
+	- root tag of xml file should be 'beans'
+		- file passed into AC
+	- example of bean definition:
+		<bean name="department" class="com.revature.models.Department"></bean>
+	<bean name="employee" class="com.revature.models.Employee" >
+		<property name="id" value="1"></property>
+		<property name="name" value="Joe"></property>
+		<property name="department" ref="department"></property>
+		
+		<!-- <constructor-arg ref="department"></constructor-arg> -->
+	</bean>
+
+To use annotation based mapping use:
+	<context:component-scan base-package="com.revature"></context:component-scan>
+
+Bean wiring
+	- Establishing dependencies between Spring beans (that can be defined in the .xml config file)
+	- @Autowired/Or a an autowire="" in xml
+		- annotation that tells Spring that an object is a dependency
+		- byName/byType
+		- automagically
+
+Scope of a bean:
+	- Singleton: Only one of this bean is created, all requests for this bean gets this same bean.
+	- Prototype: Everytime the bean is requested, a new intance is created.
+	- Request: web-only, new bean instance per HTTP request
+	- Session: web-only, new bean instance per HTTP session
+	- Global: web-only, new bean instance per global HTTP session
+	- Can be defined in beans.xml or using @Scope annotation
+
+Stereotype annotation
+	- annotations for beans that you want the IoC container to manage
+	- 4 main types
+		- @Component - standard, managed bean. Other annotations include this one implicitely
+		- @Service - denotes a service, doesn't really hold info just performs tasks"stateless managed bean"
+		- @Repository - beans used to retrieve data from a database (Daos)
+		- @Controller - beans registered with SpringWeb, to handle requests and responses
+
+@Bean
+	- Annotation used over a method to specify that the returned object should be managed by the IoC container
+		- good for objects that a class has not been written for
+
+Bean lifecycle and Lombok
+	- RevPro content

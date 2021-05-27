@@ -1,5 +1,11 @@
 # Training Calendar
 
+05/26
+- 1PM Central - Kevin meeting(until 2PM)
+
+05/25
+- 4PM Central - Kevin meeting(rest of day)
+
 05/24
 - 10:30 Central - QC (SDLC, Angular)
 

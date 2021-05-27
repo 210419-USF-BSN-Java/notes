@@ -3,6 +3,11 @@
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+<<<<<<< HEAD
+=======
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/annotations"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-test-sources/test-annotations"/>
+>>>>>>> 3c8068b42c1d06cb965c7d72bc6d7f85396ac08a
         <property name="context-root" value="AuthDemo"/>
         <property name="java-output-path" value="/AuthDemo2/target/classes"/>
     </wb-module>

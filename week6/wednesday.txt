@@ -1,0 +1,64 @@
+Spring Web MVC
+	- Spring Module
+		- From Spring Web
+	- Allows handling of HTTP requests with Spring Applications
+	- Abstracted away
+		- uses a Front Controller Design pattern
+		- only requires the implementation of controller methods and mappings to requests
+		- have to define dispatcher servlet
+	- Controllers
+		- have methods designed to handle requests for a particular path/HTTP method
+		- methods return either 
+			- JSON data in response body
+			- View/Static resource
+	- Flow of a Request
+		- Client makes a request
+		- Received by Tomcat
+		- Checks DD
+		- Routed to Dispatcher Servlet
+		- Checks RH
+		- Static Views or Controller
+	- MVC app setup
+		- contextParam
+			- location of the xml Config file
+				- enablemvcannotations
+		- Servlet
+			- DispatcherServlet from Spring
+				- pass in config as init param
+					- view resolver config
+			- servlet mapping
+				- handle all requests
+MVC Annotations
+	- @Controller
+		- used to annotate a controller class
+		- can be leveraged alongside @RequestMapping to specify a common path to the controller methods
+		- used to handle HTTP requests
+	- @RestController
+		- implicitly adds @ResponseBody to all of the handler methods
+	- @RequestMapping(HTTP method, Mapping)
+		- ie: @RequestMapping(method=RequestMethod.GET, value="/home")
+		- used to specify the http verb and path that method will handle
+		- by default, methods go through the view resolver to return a view
+			- use @ResponseBody to return, in this case, JSON data 
+				- bypasses the view resolver
+	- @GetMapping/@PostMapping...
+		- just takes in the path ("/...")
+		- specifies the HTTP verb used
+		- can additional attribute (ie: pathvar, requestparam...)
+			- @PathVariable - used to retrieve a variable in the url
+				- @GetMapping("/{id}")
+				- getEmployeeById(@PathVariable("id")int id)
+			- @RequestParam - used to retrieve query params
+				- getAllEmployees(@RequestParam(name="position", required=false)String position)
+				- can add a required property to specify if that param is mandatory
+			- @RequestBody - used to retrieve data from the request body
+				- addEmployee(@RequestBody Employee e)
+				- uses object mapper implicitly, ie; converts JSON to JavaObject
+		- specify a status code using @ResponseStatus
+			- favorable to use ResponseEntity<> for more control over which status code to return
+
+Global Exception Handling
+	- Allows to handle exceptions in server and return the appropriate status code
+	- annotate the class with @ControllerAdvice
+	- annotate methods with @ExceptionHandler([Exception].class and @ResponseStatus([status], ?reason)
+		
