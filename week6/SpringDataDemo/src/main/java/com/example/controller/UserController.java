@@ -51,4 +51,8 @@ public class UserController {
 		return new ResponseEntity<List<User>>(uList, HttpStatus.OK);
 	}
 	
+	@GetMapping(value="/hello")
+	public ResponseEntity<String> hello(){
+		return new ResponseEntity<String>("Hello", HttpStatus.OK);
+	}
 }
