@@ -2,9 +2,16 @@ Project: Trivia App
 Team lead - Raphael
 Git Flow - Nolan
 
+Title:
+
+The Fantastic Trivia Game App (TFTG) - Java/Angular Full Stack
+
 Description:
-It is a trivia game that has multiple categories, users can select question sets and will be scored on how well they perform.
-Their scores will be displayed on a leaderboard(optional).
+ 
+The Fantastic Trivia Game (TFTG) is a trivia game application that will allow players to answer a set of 
+questions from selected categories and post their score to a leaderboard for other players to see. 
+Players can create an account, login with created credentials, and then select a category to answer a question set of that category. 
+Players can also view and edit their profile information. Administrators can login, and create question sets by category and difficulty, with questions pulled from a trivia API. Administrators can also view leaderboards, and remove players from leaderboards or ban/suspend users for suspicious activity.
 
 
 Activity diagram

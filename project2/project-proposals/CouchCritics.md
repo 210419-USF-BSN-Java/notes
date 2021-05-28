@@ -1,5 +1,10 @@
 # Couch-Critics
 
+## Description
+In the Couch Critics Application users will be able to view reviews made by our trusted movie critics, and provide their own comments on a movie as well. There are three main types of users: a regular user, a critic, and an administrator. Anyone who opens the application in their web browser will be able to sign up as a regular user, and view our movie reviews. That person will have a personal account that keeps track of their comment history as well as the ratings that they gave to certain critic reviews.
+    
+A critic is a type of employee who can make reviews on movies provided by an external API. Those reviews will have to be approved by an admin before it is posted to the website. Regular users can provide a thumbs up or down to a critic’s review and leave a comment if they wish. A critic can also behave as a regular user, but they will have a critic score to show how they are generally rated. The Administrator will manage the reviews that are uploaded to the website. A review can be edited or deleted by an admin. The admin can also hire new critics or fire existing ones. 
+
 ## Executive Summary
 
 - The Couch Critic Application will manage the process of writing reviews for Movies.
