@@ -1,5 +1,10 @@
 # Training Calendar
 
+06/01
+- 10:30 Central - QC (Angular/Spring)
+
+---
+
 05/26
 - 1PM Central - Kevin meeting(until 2PM)
 

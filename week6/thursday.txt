@@ -38,3 +38,72 @@ Spring AOP
 		- @AfterReturning: after the advised method executes successfully (no exception/error)
 		- @AfterThrowing: after the advised method throws an exception/error
 		- @Around: "most powerful" advice, happens before the advised method, can tell when the method should be executed, if it should be executed, can continue after the method
+
+
+Spring Boot
+	- Spring project
+		- makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run".
+		- takes an opinionated view of the Spring platform and third-party libraries 
+			- need minimal Spring configuration.
+	- Can define Spring Boot Project using Spring Initialzr
+	- "Convention over configuration"
+		- reduces the amount of configuration by assuming common conventions
+			- ie: Tomcat on port 8080
+			
+		- no xml configuration
+			- can still configure specific configs using application.properties or application.yml
+				- ie:
+					- override convention
+					- db credentials
+	- Set Up
+		- the main method class goes in a parent package - (base package)
+			- Otherwise component scan may not find relevant beans
+		- call SpringApplication.run([ClassName].class, args);
+		- @SpringBootApplication
+			- abtracts away
+				- @Configuration
+				- @EnableAutoConfiguration
+				- @ComponentScan
+	- DevTools
+		- set of tools to ease application development
+			- automatic server restart
+			- live reloading of the ApplicationContext
+			- & more...
+	- actuator
+		- brings production-ready features to the application
+			- metrics (traffic, app state...)
+			- bean info
+			- health checks
+			- more...
+
+
+Spring Data - Continued
+	- Transaction management
+		- Spring provides comprehensive transaction support
+	- @Transactional
+		- Indicates that a method with be handled in the context of a Spring handled transaction
+		- Has attributes to override default settings:
+			- isolation
+				- @Transactional(isolation=Isolation.[Isolaction_Level])
+			- rollbackFor
+				- @Transactional(rollbackFor={[ExceptionName].class})
+			- propagation
+				- defines how nested transactions are handled
+	- @Transactional(propagation=Propagation.[value])
+		- REQUIRED
+			- executes in the current transaction if one exists, otherwise creates one
+			- default... I think
+				- ie: if not specified otherwise
+		- NESTED
+			- executes in the same transaction, but separated by a savepoint
+		- REQUIRES_NEW
+			- creates a new transaction which commits/rolls back independently from other transactions
+		- MANDATORY
+			- MUST execute in an existing transaction or will throw an exception if none is open
+		- NEVER
+			- MUST execute non-transactionally or will throw an exception if one is open
+		- SUPPORTED
+			- will execute in the scope of a transaction if one is open, otherwise runs non-transactionally
+		- NOT_SUPPORTED
+			- executes non-transactionally no matter what, will pause current transaction if need be
+
