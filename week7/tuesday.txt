@@ -4,10 +4,18 @@ Tuesday plan:
 	- Fill out surveys for the week:
 		- https://docs.google.com/forms/d/e/1FAIpQLSctgsH-__acrraIWMPDsV3XSFmTAujJNIxK9zKEhATsYsKHSw/viewform?embedded=true
 	- QC 10:30am - Central (Spring/Angular) 
-	
-	- After lunch - 1-o-1s with specific people
 	- During the day, read through webservices notes on GitHub
 		- For SOAP, no implementation is required. 
 			- Just "what it is"
 		- Research Richardson Maturity Model
+	- After lunch - 1-o-1s with specific people
+		- Tom 
+		- Devaraj
+		- Ruben
+		- Andrew  
+		- Teresa  
+		- Christopher  	
+		- Aarstad Kevin  
+		- Uriah
+		- Cho Kevin 
 		
