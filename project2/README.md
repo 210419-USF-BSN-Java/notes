@@ -26,7 +26,7 @@ Angular application should be hosted in an S3 bucket
 
 ____________________________________________________________________________
 
-Additional Requirements:
+Optional Requirements:
 -	Create a continuous deployment pipeline for angular front end
 ____________________________________________________________________________
 
