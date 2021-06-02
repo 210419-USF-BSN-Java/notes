@@ -56,7 +56,7 @@ CMD ["/usr/games/nsnake"]
     > The file must be titled `Dockerfile` *exactly*, with no extensions.
 
 3. Create a distribution directory which will hold all of the files to be deployed on nginx. Inside your application, run the following command:
-    > `npm run build --prod`
+    > `ng build`
     
 4. Within this file, write the following code:
 ```sh
@@ -68,10 +68,10 @@ COPY dist/[app-name] /usr/share/nginx/html
 ```
 
 5. Build an image from the Dockerfile with the following command: <br>
-    > `docker build -t [app-name]:latest`
+    > `docker build -t [app-name]:latest .`
 
 6. Create a command by running the imamge on port 80 with the following command. <br>
-    > `docker run -p 80:80 -d --name [app-name]-container  [app-name]:latest`
+    > `docker run -p 80:80 -d --name [container-name]  [app-name]:latest`
 
 <br>
 
