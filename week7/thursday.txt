@@ -1,0 +1,34 @@
+Vertical Scaling
+	- "More power"
+
+Horizontal Scaling
+	- More instances
+
+MSA (MicroService Architecture)
+	- Breaking down larger "monolithic" application into smaller/independent services (decoupled)
+		- decomposing applications into single-function modules with well defined interfaces which are independently deployed and communicating via open protocols
+			- ie: Netflix
+	- Monolith vs MSA
+	 	- Monolith
+			- System simplicity
+			- More centralized control
+			- Less network traffic
+			- ACID transaction
+		- MSA
+			- Higher fault tolerance
+				- ie: an exception does not take down all of the other services/ more durable
+			- More efficient resource allocation and scalability
+				- can scale a specific aspect of the application, as needed, rather than the whole thing
+			- Not tied to one particular tech stack
+				- ie: if all services are Restful, tech stack used to create the service do not matter as long as JSON data is taken in and returned
+			- Modularity
+				- benefit maintenance
+				- easy to replace/upgrade
+			- Eventual Consistency
+				- multiple dbs may have to be updated
+	- Disadvantages of MSA
+		- Complex infrastructure
+		- Chatty interfaces
+			- Lot of interservice communication over a network
+		- Lack of transactional operation (ACID)
+			- BASE (Basic Availability, Soft state, and Eventual Consistency)
