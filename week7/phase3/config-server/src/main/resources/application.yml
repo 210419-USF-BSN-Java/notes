@@ -1,0 +1,12 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/210419-USF-BSN-Java/config-server
+          default-label: main
+            

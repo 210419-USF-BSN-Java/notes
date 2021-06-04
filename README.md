@@ -1,5 +1,17 @@
 # Training Calendar
 
+TBD
+- Quiz/QC: Java/SQL/Softskills
+
+06/08
+- TBD: Project 3 Handoff
+
+06/07
+- Project 2 presentations
+- 1PM Central: Sales Department meeting
+
+---
+
 06/01
 - 10:30 Central - QC (Angular/Spring)
 
