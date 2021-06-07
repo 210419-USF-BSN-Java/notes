@@ -1,8 +1,14 @@
 # Training Calendar
 
+06/16
+- 11AM Central: Staging Handshake
+
+---
+
 06/08
+- 10AM Central: Project 3 Handoff
 - 1PM Central - QC(Java/SQL/Softskills)
-- TBD: Project 3 Handoff
+
 
 06/07
 - Morning - Project 2 presentations
