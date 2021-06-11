@@ -1,0 +1,41 @@
+Feign Client
+	- Declarative webservice client, makes it easier to make request to another webservice
+	- Requires an interface annotated with @FeignClient
+		- @FeignClient(name="service", fallback=ClassName.class)
+		- List the methods/endpoints available on that other webservice
+		- location of service is mapped using the service registry
+		- fallback provides methods in case a service is unavailable to "fail gracefully"
+		- add in the .properties/yml file
+			- feign.hystrix.enabled=true
+		- requires @EnableFeignClients above the main method
+
+Hystrix
+	- Circuit breaker, provides fallbacks to servers
+		- short circuits a "path"/"route" after several call failures
+	- @EnableCircuitBreaker
+	- Hystrix dashboard
+		- monitoring tool about shortcircuiting and failure
+
+Spring Cloud Config
+	- Configuration server for centralized configuration
+	- @EnableConfigServer
+	- Keep track of all the configurations in a repository
+		- Easy switch between Dev/Prod config if needed
+		- Easier to maintain
+
+Kafka
+	- Messaging service/Messaging Queue
+	- Follows a Subscriber/Publisher DP/ Producer/Consumer DP
+	- When a service is unavailable, the "message"/requests made to that service are stored in a queue to be consumed once the service is back up
+	- Broker
+		- Log of messaging
+		- Maintain topics
+			- Subset of data
+				- Records
+					- data that is published/consumed to/from a broker
+					- written into topics and numerically ordered with an id
+	- Not a one to one relationship
+		- can have multiple prod/consumer
+	- Multiple partitioning is recommended
+		- a partition keeps track of the topics
+			- can act as backup

@@ -1,0 +1,81 @@
+Vertical Scaling
+	- "More power"
+
+Horizontal Scaling
+	- More instances
+
+MSA (MicroService Architecture)
+	- Breaking down larger "monolithic" application into smaller/independent services (decoupled)
+		- decomposing applications into single-function modules with well defined interfaces which are independently deployed and communicating via open protocols
+			- ie: Netflix
+	- Monolith vs MSA
+	 	- Monolith
+			- System simplicity
+			- More centralized control
+			- Less network traffic
+			- ACID transaction
+		- MSA
+			- Higher fault tolerance
+				- ie: an exception does not take down all of the other services/ more durable
+			- More efficient resource allocation and scalability
+				- can scale a specific aspect of the application, as needed, rather than the whole thing
+			- Not tied to one particular tech stack
+				- ie: if all services are Restful, tech stack used to create the service do not matter as long as JSON data is taken in and returned
+			- Modularity
+				- benefit maintenance
+				- easy to replace/upgrade
+			- Eventual Consistency
+				- multiple dbs may have to be updated
+	- Disadvantages of MSA
+		- Complex infrastructure
+		- Chatty interfaces
+			- Lot of interservice communication over a network
+		- Lack of transactional operation (ACID)
+			- BASE (Basic Availability, Soft state, and Eventual Consistency)
+
+Spring Cloud
+	- Spring project, designed to address the "issues" related to MSA
+		- Provides implementation for different design patterns to address those issues
+		- Service Discovery
+			- Netflix Eureka/Consul
+		- API Gateway
+			- Spring Cloud Gateway/Netflix Zuul
+		- Circuit breaking
+			- Netflix Hystrix
+		- Load Balancing
+		- Central Config
+
+
+Service Discovery
+	- in MSA, services communicate with each other via open protocols, one of the challenges arising is to track the "location" of relavant services
+	- Allows for services to locate one another using a service registry
+		- like a db of available services and their location
+		- keeping track of if a service is up via healthchecks (ie: pings)
+		- services can register to the registry
+	- Implementations:
+		- Eureka - Netflix
+		- Consul
+			- Service mesh, it's a layer providing secure service to service communication
+			- Has additional features such as KV...
+			- More info on RevPro/Consul Website
+	- Consul service can be ran using Docker or via downloading from Consul website
+		- Runs on port 8500 by default
+		- Can access consul UI via localhost:8500
+			- displays service registry with "state of the services" 
+	- Service can register via the @EnableDiscoveryClient annotation above the main class of their application(Where @SpringBootApplication is located)
+		- Need a discovery client dependency
+
+API Gateway/Gateway Service
+	- Acts as a "gateway" to route and filter requests
+	- Routing
+		- specify "routes" in the property file
+	- Because all request go through the gateway, ideal location for filters
+	- Implementations:
+		- Zuul - Netflix
+		- Spring Cloud Gateway - Abstraction of Zuul
+
+Loadbalancing
+	- Routing requests to available service instances to distribute request load
+		- Can be configured in API gateway
+		- Can configured with Ribbon (client-side load balancer
+	
