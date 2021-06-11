@@ -1,7 +1,23 @@
 # Training Calendar
 
+06/24
+- TBD: Project 3 showcase
+
+06/23
+- Project 3 Presentation Prep
+- Panels: (???)
+
+---
+
+06/17
+- 3PM Central: .NET Showcase(Tentative)
+
 06/16
 - 11AM Central: Staging Handshake
+
+06/15
+- 9:30AM Central: Cumulative QC
+- Project review/Demo (Tentative)
 
 ---
 
