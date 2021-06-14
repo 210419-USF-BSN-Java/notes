@@ -15,7 +15,7 @@
 06/16
 - 11AM Central: Staging Handshake
 - 12-1:30PM Central:  Inspiration Series Session - Dena Jones
-- Project review/Demo (Tentative)
+- 4:30PM Central: Project review/Demo w/ Kenny
 
 06/15
 - 9:00-9:15AM Central: Inspiration Series Session Overview
