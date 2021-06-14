@@ -14,8 +14,10 @@
 
 06/16
 - 11AM Central: Staging Handshake
+- 12-1:30PM Central:  Inspiration Series Session - Dena Jones
 
 06/15
+- 9:00-9:15AM Central: Inspiration Series Session Overview
 - 9:30AM Central: Cumulative QC
 - Project review/Demo (Tentative)
 
