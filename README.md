@@ -4,7 +4,7 @@ Previous batch showcase: https://revature.zoom.us/rec/share/SjCu1JlSgKco1Kl0p27u
 
 Password: #SPPF58J 
 
-Prestation Begins at 21 minutes
+Presentation Begins at 21 minutes
 
 ---
 
