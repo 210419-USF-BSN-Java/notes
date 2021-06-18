@@ -8,12 +8,14 @@ Presentation Begins at 21 minutes
 
 ---
 
+06/25
+- Panels due
+
 06/24
-- TBD: Project 3 showcase
+- 8AM Central: Project 3 showcase
 
 06/23
 - Project 3 Presentation Prep
-- Panels: (???)
 
 ---
 
